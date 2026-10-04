@@ -1,0 +1,409 @@
+stage: "2.2"
+status: complete
+schema_version: "0.1"
+input: evidence-cards.yaml
+input_card_count: 66
+
+clusters:
+  - cluster_id: C001
+    working_label: demonstrated_commitment
+    supporting_evidence: [E001, E002, E004]
+    synthesis: "Commitment is assessed through mission alignment and concrete past episodes of effort, motivation, and pride rather than through polished enthusiasm alone."
+    evidence_relationship: complementary
+    confidence: high
+    source_diversity: {source_count: 1, source_ids: [AW_001]}
+    candidate_persona_dimension: demonstrated_commitment
+    related_but_distinct: [quality_bar, high_effort_intensity]
+    why_distinct: "Commitment concerns evidence of caring; a quality bar concerns output standards, while intensity concerns the amount or extremity of effort."
+    unresolved_tensions:
+      - "The source treats commitment as a selection criterion but does not show how commitment develops or changes over time."
+
+  - cluster_id: C002
+    working_label: direct_inspection_of_high_leverage_inputs
+    supporting_evidence: [E003, E021, E060]
+    synthesis: "Wang repeatedly reports personally inspecting hiring evidence when he considers talent a consequential organizational input."
+    evidence_relationship: convergent
+    confidence: high
+    source_diversity: {source_count: 3, source_ids: [AW_001, AW_005, AW_011]}
+    candidate_persona_dimension: direct_inspection
+    related_but_distinct: [staged_delegation, detail_orientation, decision_loop_ownership]
+    why_distinct: "Inspection concerns direct review of evidence; delegation concerns expanding another person's authority, detail orientation is a self-described style, and decision ownership concerns remaining involved in consequential choices."
+    unresolved_tensions:
+      - "The corpus does not establish when direct inspection becomes a bottleneck or counterproductive micromanagement."
+
+  - cluster_id: C003
+    working_label: multilevel_leadership
+    supporting_evidence: [E006, E007, E008]
+    synthesis: "Leadership operates at three distinct levels: executing immediate work, determining whether the work is directionally correct, and shaping the surrounding culture."
+    evidence_relationship: complementary
+    confidence: high
+    source_diversity: {source_count: 1, source_ids: [AW_002]}
+    candidate_persona_dimension: multilevel_leadership
+    related_but_distinct: [prioritization, execution, culture_shaping]
+    why_distinct: "The three components belong to one leadership model but should remain distinguishable because success at one level does not imply success at the others."
+    unresolved_tensions: []
+
+  - cluster_id: C004
+    working_label: detail_orientation
+    supporting_evidence: [E009]
+    synthesis: "Wang describes his leadership as highly attentive to detail and deeply involved in operational specifics."
+    evidence_relationship: complementary
+    confidence: high
+    source_diversity: {source_count: 1, source_ids: [AW_002]}
+    candidate_persona_dimension: detail_orientation
+    related_but_distinct: [direct_inspection, problem_ownership]
+    why_distinct: "This is a general self-description; direct inspection and problem ownership are observable practices in particular contexts."
+    unresolved_tensions:
+      - "Self-description is not independent evidence of effectiveness."
+
+  - cluster_id: C005
+    working_label: focused_urgency
+    supporting_evidence: [E010, E027]
+    synthesis: "Urgency is directed toward critical problems and shortened iteration cycles, rather than being merely a generalized demand for more activity."
+    evidence_relationship: complementary
+    confidence: high
+    source_diversity: {source_count: 2, source_ids: [AW_002, AW_006]}
+    candidate_persona_dimension: focused_urgency
+    related_but_distinct: [high_effort_intensity, rapid_strategic_reallocation, ruthless_prioritization]
+    why_distinct: "Focused urgency concerns cycle time on important work; intensity concerns effort level, reallocation concerns changing direction, and prioritization concerns choosing what matters."
+    unresolved_tensions:
+      - "Faster iteration can amplify error when feedback quality is weak."
+
+  - cluster_id: C006
+    working_label: continuous_development_environment
+    supporting_evidence: [E011, E043]
+    synthesis: "People begin without mastery and should be placed in environments that support useful work, rapid learning, and continuous improvement."
+    evidence_relationship: complementary
+    confidence: high
+    source_diversity: {source_count: 2, source_ids: [AW_002, AW_009]}
+    candidate_persona_dimension: continuous_improvement
+    related_but_distinct: [hands_on_tool_learning, feedback_receptivity]
+    why_distinct: "Continuous development is a broad developmental orientation; tool learning is domain-specific and feedback receptivity is one mechanism of improvement."
+    unresolved_tensions:
+      - "The corpus does not describe detailed personal study mechanics."
+
+  - cluster_id: C007
+    working_label: ambitious_north_star_with_narrow_sequence
+    supporting_evidence: [E012, E013, E014, E015]
+    synthesis: "A large long-term possibility can coexist with years of concentrated work on one foundational problem; demonstrated progress creates momentum and later expands the opportunity set."
+    evidence_relationship: complementary
+    confidence: high
+    source_diversity: {source_count: 1, source_ids: [AW_003]}
+    candidate_persona_dimension: ambition_execution_sequencing
+    related_but_distinct: [long_run_exponential_selection, ambitious_building]
+    why_distinct: "This construct concerns sequencing a broad ambition through a narrow starting point; exponential selection concerns choosing a field, while ambitious building concerns moving from an idea to action."
+    unresolved_tensions:
+      - "The account is retrospective and may contain survivorship bias."
+
+  - cluster_id: C008
+    working_label: hands_on_ai_tool_learning
+    supporting_evidence: [E016, E018, E019]
+    synthesis: "Wang associates practical advantage with accumulating extensive hands-on experience using emerging AI tools."
+    evidence_relationship: convergent
+    confidence: medium
+    source_diversity: {source_count: 1, source_ids: [AW_004]}
+    candidate_persona_dimension: hands_on_tool_learning
+    related_but_distinct: [continuous_improvement, systems_thinking, high_effort_intensity]
+    why_distinct: "This construct is specifically about experiential tool fluency, not general learning, higher-order system design, or total work intensity."
+    unresolved_tensions:
+      - "The interview's hyperbolic time commitment is not evidence of an optimal or sustainable practice dose."
+
+  - cluster_id: C009
+    working_label: adaptation_to_higher_abstraction_layers
+    supporting_evidence: [E017, E046]
+    synthesis: "As AI changes engineering work, rigorous systems thinking remains valuable even when the operative task shifts from writing components to orchestrating tools, agents, and workflows."
+    evidence_relationship: convergent
+    confidence: high
+    source_diversity: {source_count: 2, source_ids: [AW_004, AW_009]}
+    candidate_persona_dimension: abstraction_adaptation
+    related_but_distinct: [hands_on_tool_learning, agentic_feedback_loop_design]
+    why_distinct: "Abstraction adaptation concerns the changing level of technical reasoning; tool learning concerns fluency, and feedback-loop design concerns optimization architecture."
+    unresolved_tensions:
+      - "The evidence does not establish which foundational coding skills remain necessary."
+
+  - cluster_id: C010
+    working_label: talent_quality_as_high_leverage_input
+    supporting_evidence: [E020, E022, E023]
+    synthesis: "Wang treats individual talent quality as a high-leverage organizational input and argues for evaluating individuals against a maintained or rising capability bar."
+    evidence_relationship: complementary
+    confidence: high
+    source_diversity: {source_count: 1, source_ids: [AW_005]}
+    candidate_persona_dimension: quality_bar
+    related_but_distinct: [demonstrated_commitment, direct_inspection, team_scaling_risk]
+    why_distinct: "Quality concerns capability standards; commitment concerns caring, inspection concerns review behavior, and scaling risk concerns dilution through rapid growth."
+    unresolved_tensions:
+      - "The source supplies no objective measurement procedure for the quality bar."
+
+  - cluster_id: C011
+    working_label: first_principles_bottleneck_identification
+    supporting_evidence: [E024, E025, E040]
+    synthesis: "Direct experience with a system can support decomposing it into necessary components, comparing their accessibility, and identifying an under-addressed bottleneck."
+    evidence_relationship: convergent
+    confidence: high
+    source_diversity: {source_count: 2, source_ids: [AW_006, AW_009]}
+    candidate_persona_dimension: bottleneck_identification
+    related_but_distinct: [active_thinking, prerequisite_analysis]
+    why_distinct: "Bottleneck identification locates the limiting system component; active thinking tests explanations, while prerequisite analysis asks what infrastructure must exist before execution can accelerate."
+    unresolved_tensions:
+      - "The explicit 'first principles' label originates with the YC interviewer, although Wang supplies the underlying experience and agrees with the framing."
+
+  - cluster_id: C012
+    working_label: prerequisite_analysis
+    supporting_evidence: [E026]
+    synthesis: "Execution speed is partly constrained by access to foundational infrastructure and other prerequisites."
+    evidence_relationship: complementary
+    confidence: high
+    source_diversity: {source_count: 1, source_ids: [AW_006]}
+    candidate_persona_dimension: prerequisite_analysis
+    related_but_distinct: [bottleneck_identification, resource_allocation]
+    why_distinct: "A prerequisite enables work to begin or scale; a bottleneck is the current limiting factor, and resource allocation determines what receives investment."
+    unresolved_tensions: []
+
+  - cluster_id: C013
+    working_label: ambitious_building
+    supporting_evidence: [E028, E029]
+    synthesis: "Important technological opportunities may initially sound implausibly ambitious, but ambition becomes meaningful only when paired with starting to build."
+    evidence_relationship: complementary
+    confidence: high
+    source_diversity: {source_count: 1, source_ids: [AW_006]}
+    candidate_persona_dimension: ambition_to_action
+    related_but_distinct: [ambition_execution_sequencing, long_run_exponential_selection]
+    why_distinct: "This construct is the transition from ambitious concept to action, not the sequencing of a known objective or selection of a long-horizon field."
+    unresolved_tensions:
+      - "The evidence provides no validation gate or stopping condition for ambitious projects."
+
+  - cluster_id: C014
+    working_label: early_entry_and_fresh_perspective
+    supporting_evidence: [E030, E031]
+    synthesis: "The provisional Accel material associates Wang's early experimentation and fresh perspective with recognizing an important developing field before broad consensus."
+    evidence_relationship: partially_overlapping
+    confidence: low
+    source_diversity: {source_count: 1, source_ids: [AW_007]}
+    candidate_persona_dimension: early_entry
+    related_but_distinct: [nonconsensus_conviction, hands_on_tool_learning]
+    why_distinct: "Early entry concerns timing; conviction concerns maintaining an uncommon belief, and tool learning concerns skill acquisition after entering."
+    unresolved_tensions:
+      - "The full transcript was not reviewed, and Accel's publisher framing may be promotional."
+
+  - cluster_id: C015
+    working_label: rapid_team_scaling_failure
+    supporting_evidence: [E033, E034, E055, E056, E057]
+    synthesis: "Wang retrospectively rejects the assumption that company hypergrowth requires team hypergrowth, citing rapid expansion, delayed quality degradation, and lost organizational problem-solving capacity."
+    evidence_relationship: convergent
+    confidence: high
+    source_diversity: {source_count: 2, source_ids: [AW_008, AW_011]}
+    candidate_persona_dimension: scaling_failure_diagnosis
+    related_but_distinct: [growth_headcount_decoupling, quality_bar, high_effort_intensity]
+    why_distinct: "This construct diagnoses a failed scaling decision; decoupling is the corrective policy, quality is the affected standard, and effort intensity concerns individual or cultural exertion rather than team size."
+    unresolved_tensions:
+      - "The causal account is retrospective and does not isolate all other factors affecting performance."
+
+  - cluster_id: C016
+    working_label: growth_headcount_decoupling
+    supporting_evidence: [E032, E058, E059]
+    synthesis: "After rapid hiring, Scale reportedly held team size comparatively flat while revenue grew, and Wang reframed growth around output quality rather than headcount expansion."
+    evidence_relationship: convergent
+    confidence: high
+    source_diversity: {source_count: 2, source_ids: [AW_008, AW_011]}
+    candidate_persona_dimension: output_over_input_growth
+    related_but_distinct: [rapid_team_scaling_failure, resource_allocation]
+    why_distinct: "The failure construct explains what went wrong; this construct captures the changed operating policy and observed output pattern."
+    unresolved_tensions:
+      - "The evidence does not establish that flat headcount caused revenue growth."
+
+  - cluster_id: C017
+    working_label: staged_delegation_with_verification
+    supporting_evidence: [E035, E036]
+    synthesis: "New leaders should first acquire operational context, then earn broader authority through beneficial small decisions that can be observed and verified."
+    evidence_relationship: complementary
+    confidence: high
+    source_diversity: {source_count: 1, source_ids: [AW_008]}
+    candidate_persona_dimension: staged_delegation
+    related_but_distinct: [direct_inspection, decision_loop_ownership]
+    why_distinct: "Staged delegation governs another person's expanding authority; inspection is evidence review, and decision ownership concerns the original leader's continuing involvement."
+    unresolved_tensions:
+      - "No threshold or time horizon for sufficient trust is supplied."
+
+  - cluster_id: C018
+    working_label: consequential_decision_ownership
+    supporting_evidence: [E037]
+    synthesis: "Hiring experienced leaders does not justify withdrawing from consequential decision loops that depend on the founder's repeated judgment."
+    evidence_relationship: complementary
+    confidence: high
+    source_diversity: {source_count: 1, source_ids: [AW_008]}
+    candidate_persona_dimension: decision_ownership
+    related_but_distinct: [staged_delegation, direct_inspection]
+    why_distinct: "Decision ownership addresses responsibility for consequential choices, whereas delegation and inspection address how responsibility and evidence review are distributed."
+    unresolved_tensions:
+      - "The founder-centric model may conflict with organizational scalability or successor development."
+
+  - cluster_id: C019
+    working_label: blunt_feedback_and_course_correction
+    supporting_evidence: [E038, E039]
+    synthesis: "A supportive environment can deliver blunt negative feedback, and Wang's account shows accepting such feedback and abandoning a mistimed direction after a short trial."
+    evidence_relationship: complementary
+    confidence: high
+    source_diversity: {source_count: 1, source_ids: [AW_009]}
+    candidate_persona_dimension: feedback_driven_course_correction
+    related_but_distinct: [nonconsensus_conviction, intellectual_challenge]
+    why_distinct: "Course correction concerns acting on feedback about a specific direction; conviction concerns resisting social noise, and intellectual challenge concerns testing claims generally."
+    unresolved_tensions:
+      - "The corpus does not supply a rule for deciding which negative feedback should be accepted."
+
+  - cluster_id: C020
+    working_label: nonconsensus_conviction_and_internal_compass
+    supporting_evidence: [E041, E042]
+    synthesis: "Wang argues for developing an independent model of the future and maintaining conviction in important beliefs before they become consensus."
+    evidence_relationship: convergent
+    confidence: high
+    source_diversity: {source_count: 1, source_ids: [AW_009]}
+    candidate_persona_dimension: independent_conviction
+    related_but_distinct: [feedback_driven_course_correction, early_entry, long_run_exponential_selection]
+    why_distinct: "Conviction concerns independence from ambient opinion; course correction concerns evidence about a concrete attempt, early entry concerns timing, and exponential selection concerns field choice."
+    unresolved_tensions:
+      - "Strong conviction can become stubbornness when contrary evidence is diagnostic rather than merely popular opinion."
+
+  - cluster_id: C021
+    working_label: long_run_exponential_selection
+    supporting_evidence: [E044]
+    synthesis: "Wang recommends choosing a trend with both a steep growth curve and a long remaining duration, even when its present form looks unimpressive."
+    evidence_relationship: complementary
+    confidence: high
+    source_diversity: {source_count: 1, source_ids: [AW_009]}
+    candidate_persona_dimension: long_horizon_selection
+    related_but_distinct: [nonconsensus_conviction, ambition_execution_sequencing]
+    why_distinct: "This is a criterion for allocating long-term effort, not a rule about maintaining belief or sequencing immediate work."
+    unresolved_tensions:
+      - "The source offers no reliable method for estimating whether an exponential will persist."
+
+  - cluster_id: C022
+    working_label: agentic_feedback_loop_design
+    supporting_evidence: [E045]
+    synthesis: "Effective agentic systems depend on an explicit feedback loop and an appropriate evaluation or optimization metric."
+    evidence_relationship: complementary
+    confidence: high
+    source_diversity: {source_count: 1, source_ids: [AW_009]}
+    candidate_persona_dimension: feedback_loop_design
+    related_but_distinct: [metric_accountability, abstraction_adaptation]
+    why_distinct: "This construct concerns designing an automated optimization system; metric accountability concerns human performance evaluation, and abstraction adaptation concerns changing technical roles."
+    unresolved_tensions:
+      - "A metric can create destructive optimization if it is incomplete or misaligned."
+
+  - cluster_id: C023
+    working_label: active_thinking
+    supporting_evidence: [E047]
+    synthesis: "Reasoning should convert broad narratives into clear, verifiable hypotheses rather than rely on convenient, untested beliefs."
+    evidence_relationship: complementary
+    confidence: high
+    source_diversity: {source_count: 1, source_ids: [AW_010]}
+    candidate_persona_dimension: active_thinking
+    related_but_distinct: [failure_diagnosis, bottleneck_identification, metric_accountability]
+    why_distinct: "Active thinking concerns the form of an explanation; failure diagnosis compares causes, bottleneck analysis locates a constraint, and metric accountability evaluates outcomes."
+    unresolved_tensions:
+      - "Not every important qualitative judgment can be made fully falsifiable."
+
+  - cluster_id: C024
+    working_label: rigorous_failure_diagnosis
+    supporting_evidence: [E048, E049]
+    synthesis: "Failure requires evidence-based diagnosis across multiple possible causes; additional willpower cannot substitute for correcting a faulty causal model."
+    evidence_relationship: complementary
+    confidence: high
+    source_diversity: {source_count: 1, source_ids: [AW_010]}
+    candidate_persona_dimension: failure_diagnosis
+    related_but_distinct: [active_thinking, high_effort_intensity, feedback_driven_course_correction]
+    why_distinct: "Diagnosis applies active thinking to a failed outcome; intensity concerns exertion, while course correction is the subsequent decision to change direction."
+    unresolved_tensions:
+      - "The source does not specify when diagnosis is sufficient to justify action."
+
+  - cluster_id: C025
+    working_label: reciprocal_intellectual_challenge
+    supporting_evidence: [E050, E051]
+    synthesis: "Important unsupported claims should be challenged, and the person making them should remain receptive to challenge; politeness should not protect consequential imprecision."
+    evidence_relationship: complementary
+    confidence: high
+    source_diversity: {source_count: 1, source_ids: [AW_010]}
+    candidate_persona_dimension: intellectual_challenge
+    related_but_distinct: [blunt_feedback_and_course_correction, active_thinking]
+    why_distinct: "This is a two-way social norm for examining claims; blunt feedback is a specific intervention, and active thinking is the underlying reasoning method."
+    unresolved_tensions:
+      - "The evidence does not specify a safe, constructive, or power-aware delivery method."
+
+  - cluster_id: C026
+    working_label: metric_accountability
+    supporting_evidence: [E052]
+    synthesis: "People should remain connected to outcome data, understand the relevant metrics, and hold themselves accountable to changing those outcomes."
+    evidence_relationship: complementary
+    confidence: high
+    source_diversity: {source_count: 1, source_ids: [AW_010]}
+    candidate_persona_dimension: metric_accountability
+    related_but_distinct: [active_thinking, agentic_feedback_loop_design]
+    why_distinct: "Metric accountability evaluates human performance against outcomes; active thinking tests explanations, and agentic loops optimize automated systems."
+    unresolved_tensions:
+      - "The source does not address incomplete, lagging, or gameable metrics."
+
+  - cluster_id: C027
+    working_label: independent_problem_ownership
+    supporting_evidence: [E053]
+    synthesis: "Assuming an unspecified other person is handling the difficult thinking can create collective neglect; important problems need explicit intellectual ownership."
+    evidence_relationship: complementary
+    confidence: high
+    source_diversity: {source_count: 1, source_ids: [AW_010]}
+    candidate_persona_dimension: problem_ownership
+    related_but_distinct: [decision_ownership, detail_orientation]
+    why_distinct: "Problem ownership concerns responsibility for thinking; decision ownership concerns consequential choices, and detail orientation concerns depth of attention."
+    unresolved_tensions:
+      - "Independent thought should not become wasteful duplication when ownership is already explicit."
+
+  - cluster_id: C028
+    working_label: meaningful_progress_over_incremental_motion
+    supporting_evidence: [E054]
+    synthesis: "Small changes can create the appearance of progress while failing to produce a meaningful advance; incremental work is necessary but insufficient by itself."
+    evidence_relationship: complementary
+    confidence: high
+    source_diversity: {source_count: 1, source_ids: [AW_010]}
+    candidate_persona_dimension: meaningful_progress
+    related_but_distinct: [focused_urgency, ruthless_prioritization]
+    why_distinct: "Meaningful progress evaluates impact size; urgency evaluates cycle time, and prioritization decides which work receives attention."
+    unresolved_tensions:
+      - "No threshold separates useful incremental work from performative motion."
+
+  - cluster_id: C029
+    working_label: high_effort_leadership_intensity
+    supporting_evidence: [E005, E061, E062, E065]
+    synthesis: "Wang's stated leadership philosophy favors unusually high care, effort, communication, delivery, and prioritization, treating perceived excess as a feature of exceptional execution."
+    evidence_relationship: convergent
+    confidence: high
+    source_diversity: {source_count: 2, source_ids: [AW_001, AW_012]}
+    candidate_persona_dimension: high_effort_intensity
+    related_but_distinct: [focused_urgency, meaningful_progress, rapid_strategic_reallocation]
+    why_distinct: "Intensity concerns the level of effort and care; urgency concerns speed on critical work, meaningful progress concerns impact, and reallocation concerns changing organizational direction."
+    unresolved_tensions:
+      - "No primary evidence establishes recovery boundaries or sustainable workload limits."
+      - "High activity can conflict with AW_008 and AW_011's warning that adding more inputs can reduce performance."
+
+  - cluster_id: C030
+    working_label: rapid_strategic_reallocation
+    supporting_evidence: [E063, E064]
+    synthesis: "When Wang judged generative AI to be a major environmental shift, Scale rapidly reallocated most of its team and he later defended the abrupt response as appropriately fast."
+    evidence_relationship: complementary
+    confidence: high
+    source_diversity: {source_count: 1, source_ids: [AW_012]}
+    candidate_persona_dimension: rapid_reallocation
+    related_but_distinct: [focused_urgency, feedback_driven_course_correction]
+    why_distinct: "Reallocation changes where resources are deployed; urgency shortens execution cycles, while course correction responds to evidence that a previous direction failed."
+    unresolved_tensions:
+      - "The successful retrospective example supplies no evidence about failed overreactions or transition costs."
+
+  - cluster_id: C031
+    working_label: sustainable_pacing_evidence_gap
+    supporting_evidence: [E066]
+    synthesis: "The frozen corpus contains strong pro-intensity evidence but no affirmative Wang-specific philosophy of rest, recovery, sleep protection, or sustainable workload boundaries."
+    evidence_relationship: tension
+    confidence: high
+    source_diversity: {source_count: 1, source_ids: [AW_012]}
+    candidate_persona_dimension: unsupported_sustainable_pacing
+    related_but_distinct: [high_effort_intensity, focused_urgency]
+    why_distinct: "This cluster records an evidentiary boundary rather than a positive intensity or urgency construct."
+    unresolved_tensions:
+      - "The absence of public evidence cannot establish Wang's private habits or opposition to recovery."
+      - "Any health-protective supervisor behavior must come from the user's objectives and system safeguards, not a fabricated Wang belief."

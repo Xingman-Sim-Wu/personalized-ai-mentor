@@ -1,0 +1,18 @@
+schema_version: "0.1"
+state_layer: constraints
+example_data: true
+authority_note: "Replace these fictional examples with private user-defined constraints."
+
+capacity:
+  focused_hours_per_week: 20
+
+protected_constraints:
+  - sufficient_sleep
+  - regular_exercise
+  - one_rest_day_per_week
+
+priority_order:
+  - health_and_fixed_constraints
+  - hard_deadlines
+  - strategic_priorities
+  - optional_projects

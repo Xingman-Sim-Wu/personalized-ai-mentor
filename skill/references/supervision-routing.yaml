@@ -1,0 +1,119 @@
+stage: "3.2"
+status: complete
+schema_version: "0.1"
+routing_style: semantic_not_keyword_based
+
+routing_policy:
+  determine_primary_intent:
+    guidance:
+      - "Infer the dominant purpose of the user's message in context, not from isolated words."
+      - "Identify whether the user mainly needs an answer, a decision, an execution review, a state update, or blocker diagnosis."
+      - "Prefer the session whose completion condition best matches what the user is trying to accomplish."
+      - "Treat session defaults as starting points that can be adjusted when the consequence or complexity differs."
+    possible_session_ids: [S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11]
+
+  supervision_relevance:
+    low:
+      indicators:
+        - "The dominant need is factual information, explanation, writing, coding, research clarification, conceptual learning, or ordinary brainstorming."
+        - "Progress evaluation, prioritization, accountability, execution diagnosis, and planning would not materially improve the answer."
+        - "No consequential state update is implied."
+      expected_behavior:
+        - "Answer directly."
+        - "Use minimal or no supervisor framing."
+        - "Do not invoke unrelated goals or deadlines."
+    medium:
+      indicators:
+        - "The immediate request is not primarily supervision, but current goals, skills, projects, or career state materially affect the answer."
+        - "A small prioritization, sequencing, or next-step implication exists."
+        - "Light contextual supervision can improve the answer without a full review workflow."
+      expected_behavior:
+        - "Answer the immediate request first."
+        - "Read only the state needed for the relevant context."
+        - "Add limited supervisory guidance."
+    high:
+      indicators:
+        - "The dominant intent is planning, accountability, prioritization, progress evaluation, blocker diagnosis, deadline management, overload control, or execution review."
+        - "The user asks what to work on, whether commitments are on track, or why important work is not moving."
+        - "The conversation is a scheduled planning or review session."
+      expected_behavior:
+        - "Use the applicable session process."
+        - "Retrieve relevant state and produce actionable decisions."
+        - "Update state only when supported by clear user-provided facts or explicit decisions."
+
+  depth_selection:
+    light:
+      indicators:
+        - "The update or decision is simple and low-complexity."
+        - "One clear fact changes state."
+        - "No meaningful conflict, repeated slippage, or causal uncertainty exists."
+      expected_scope:
+        - "Acknowledge or answer."
+        - "Apply the justified state update."
+        - "Name one immediate implication only if useful."
+    standard:
+      indicators:
+        - "Ordinary planning, review, sequencing, or comparison is needed."
+        - "A small number of variables must be reconciled."
+        - "The situation needs decisions but not extended diagnosis."
+      expected_scope:
+        - "Review the relevant state."
+        - "Make a small number of decisions."
+        - "Define priorities or outputs efficiently."
+    deep:
+      indicators:
+        - "Repeated slippage or a recurring blocker exists."
+        - "Projects or constraints materially conflict."
+        - "A deadline is at risk or a major direction change is being considered."
+        - "Emotional or mental friction is materially reducing execution."
+        - "Multiple state variables or plausible causes require careful reconciliation."
+      expected_scope:
+        - "Separate facts, interpretations, unknowns, and constraints."
+        - "Diagnose the likely bottleneck or decision conflict."
+        - "Produce a concrete correction, next test, or reprioritization."
+
+  session_type_guidance:
+    S1: "Day-start planning or explicit selection of today's priorities."
+    S2: "A factual report of attempted, completed, deferred, or changed work."
+    S3: "A brief in-day check of whether the current plan remains feasible."
+    S4: "A request or need to diagnose why consequential work is not moving."
+    S5: "A day-end comparison of intended and actual execution."
+    S6: "A week-level review of execution and strategic direction."
+    S7: "A choice among competing valuable tasks or projects."
+    S8: "Evaluation or disposition of a new project or idea."
+    S9: "A learning, skill, or technical-concept question."
+    S10: "Career materials, role choice, interview, application, or portfolio positioning."
+    S11: "Ordinary assistance that does not materially benefit from supervision."
+
+  multi_intent:
+    guidance:
+      - "Identify distinct purposes within the same message."
+      - "Choose a primary session only for response organization; do not erase secondary intents."
+      - "Process a brief state-changing update at light depth, then answer an unrelated learning or assistance question normally."
+      - "Allow different relevance and depth levels for separate portions of the response."
+      - "Retrieve the union of only the state required by the active intents."
+    example_interpretation:
+      message_meaning: "The user reports finishing a project section and asks for a technical explanation."
+      primary_or_secondary_sessions: [S2, S9]
+      handling: "Record the supported progress fact briefly, then provide the technical explanation without turning it into a full supervision session."
+
+  ambiguity:
+    guidance:
+      - "Use conversational context and likely consequence to choose the least intrusive adequate session."
+      - "When two interpretations produce materially different state changes, preserve the ambiguity or ask a concise clarification."
+      - "Do not infer completion, submission, mastery, deadline changes, or project activation from ambiguous language."
+      - "If supervision adds no material value, default toward direct assistance."
+
+  escalation_and_deescalation:
+    escalate_when:
+      - "A routine update reveals a repeated or consequential blocker."
+      - "A learning question becomes a sequencing, mastery, or deadline decision."
+      - "A career question becomes a readiness or execution review."
+    deescalate_when:
+      - "The needed decision has been made and only a direct answer remains."
+      - "The issue is isolated, low consequence, and adequately handled with a factual update."
+      - "Further supervisory processing would add length without improving execution."
+
+  anti_keyword_rule:
+    statement: "No word or phrase alone determines the session type, relevance, depth, or state update."
+    illustration: "A message asking when a course will be finished is not a progress update merely because it contains the word 'finished'."

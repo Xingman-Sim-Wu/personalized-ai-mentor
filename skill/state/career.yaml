@@ -1,0 +1,12 @@
+schema_version: "0.1"
+state_layer: career
+example_data: true
+
+career:
+  status: exploration
+  role_families:
+    - data_analysis
+    - research_analysis
+  current_priorities:
+    - demonstrate_applied_skills
+    - build_clear_project_evidence

@@ -1,0 +1,19 @@
+schema_version: "0.1"
+state_layer: projects
+example_data: true
+
+projects:
+  - project_id: P001
+    name: Certification preparation
+    strategic_goal: G1
+    status: active
+    priority: high
+    next_deliverable: complete_next_practice_module
+    target_date: null
+  - project_id: P002
+    name: Analytics portfolio case
+    strategic_goal: G2
+    status: queued
+    priority: medium
+    next_deliverable: write_project_brief
+    target_date: null

@@ -1,0 +1,13 @@
+schema_version: "0.1"
+state_layer: skills
+example_data: true
+
+skills:
+  - skill_id: SK001
+    name: SQL
+    current_level: beginner
+    evidence: []
+  - skill_id: SK002
+    name: Python
+    current_level: intermediate
+    evidence: []

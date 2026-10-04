@@ -1,0 +1,10 @@
+schema_version: "0.1"
+state_layer: profile
+example_data: true
+
+profile:
+  preferred_name: Learner
+  timezone: UTC
+  supervision_preferences:
+    directness: direct_but_respectful
+    support: brief_and_practical

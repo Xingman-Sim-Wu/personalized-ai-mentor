@@ -1,0 +1,476 @@
+stage: "3.2"
+status: complete
+schema_version: "0.1"
+policy_scope: "Interaction structure only; no communication-style model or Wang behavioral-rule assignment."
+
+allowed_values:
+  supervision_relevance: [low, medium, high]
+  session_depth: [light, standard, deep]
+
+sessions:
+  - session_id: S1
+    name: Morning Planning
+    purpose: "Choose what matters today and convert priorities into realistic, observable outputs."
+    default_supervision_relevance: high
+    default_depth: standard
+    entry_conditions:
+      - "the learner explicitly starts or requests day planning."
+      - "A scheduled morning-planning event is received from a future external scheduler."
+    state_to_read:
+      required:
+        - state/execution.yaml
+        - state/projects.yaml
+        - state/constraints.yaml
+      conditional:
+        - file: state/strategic-goals.yaml
+          when: "Current priorities cannot be resolved from active projects and deadlines alone."
+        - file: state/skills.yaml
+          when: "A skill-learning task is a candidate priority."
+    objectives:
+      - "Select one to three main priorities."
+      - "Distinguish must-do from optional work."
+      - "Define observable outputs rather than vague activity."
+      - "Fit the plan to actual available capacity and protected constraints."
+      - "Identify likely blockers and relevant carryover."
+      - "Prevent low-value new work from displacing current priorities."
+    decision_outputs:
+      optional_fields:
+        - today_priorities
+        - expected_outputs
+        - rationales
+        - estimated_blocks
+        - optional_work
+        - watch_out_for
+        - carryover
+    state_updates:
+      may_update:
+        - execution.current_week
+        - execution.today
+        - execution.recent_commitments
+      update_basis: "Confirmed planning choices made by the learner during the session."
+    avoid:
+      - "Planning every hour by default."
+      - "Creating more than three main priorities without a clear need."
+      - "Treating target dates as hard deadlines."
+      - "Planning work that overrides sleep, exercise, health, or protected rest."
+    completion_condition: "Today's main priorities and observable outputs are clear enough to begin work."
+
+  - session_id: S2
+    name: Progress Update
+    purpose: "Process user-reported progress and preserve its evidence quality."
+    default_supervision_relevance: high
+    default_depth: light
+    entry_conditions:
+      - "the learner reports completed, attempted, deferred, or changed work."
+      - "the learner supplies evidence that a milestone or skill state may have changed."
+    state_to_read:
+      required:
+        - state/execution.yaml
+      conditional:
+        - file: state/projects.yaml
+          when: "The update concerns a project or milestone."
+        - file: state/skills.yaml
+          when: "The update concerns learning or mastery evidence."
+    objectives:
+      - "Record factual progress at the level supported by the report."
+      - "Determine whether a milestone or status actually changed."
+      - "Identify the next immediate implication when useful."
+      - "Escalate depth only when the update reveals a problem or conflict."
+    decision_outputs:
+      optional_fields:
+        - acknowledged_fact
+        - state_change
+        - evidence_quality
+        - next_action
+        - escalation_needed
+    state_updates:
+      may_update:
+        - execution.today
+        - execution.recent_progress_reports
+        - execution.recent_commitments
+        - projects
+        - skills.evidence_of_mastery
+      update_basis: "Clear user-reported facts; self-assessments remain tentative and plans remain plans."
+    avoid:
+      - "Turning every completion report into a long review."
+      - "Treating 'basically done' as submitted or completed."
+      - "Converting time spent into proof of progress."
+      - "Converting subjective comfort directly into mastery."
+    completion_condition: "The reported fact is recorded accurately and any immediate implication is clear."
+
+  - session_id: S3
+    name: Midday Check
+    purpose: "Run a short optional checkpoint to determine whether the day remains on track."
+    default_supervision_relevance: high
+    default_depth: light
+    entry_conditions:
+      - "the learner requests a midday checkpoint."
+      - "A future external scheduler initiates the optional checkpoint."
+    state_to_read:
+      required:
+        - state/execution.yaml
+        - state/constraints.yaml
+      conditional:
+        - file: state/projects.yaml
+          when: "A remaining output or blocker requires project context."
+    objectives:
+      - "Compare today's priorities with completed and remaining outputs."
+      - "Account for reported energy, capacity, and unexpected interruptions."
+      - "Choose among continuing, reducing scope, reordering, moving one task, or diagnosing a blocker."
+      - "Keep the checkpoint brief unless a real issue is found."
+    decision_outputs:
+      optional_fields:
+        - on_track_assessment
+        - remaining_output
+        - adjustment
+        - blocker_to_diagnose
+    state_updates:
+      may_update:
+        - execution.today
+        - execution.recent_commitments
+      update_basis: "Confirmed progress, interruptions, capacity changes, and plan adjustments."
+    avoid:
+      - "Conducting a full end-of-day review at midday."
+      - "Interpreting lower energy as a character failure."
+      - "Preserving an unrealistic plan merely for consistency."
+    completion_condition: "The remainder of the day has a clear, feasible direction."
+
+  - session_id: S4
+    name: Blocker Diagnosis
+    purpose: "Diagnose why important work is not moving and identify the smallest useful next action."
+    default_supervision_relevance: high
+    default_depth: deep
+    entry_conditions:
+      - "Important work is stuck or repeatedly failing to advance."
+      - "The cause of a missed or delayed output is unclear."
+      - "the learner explicitly asks for help diagnosing a blocker."
+    state_to_read:
+      required:
+        - state/projects.yaml
+        - state/execution.yaml
+        - state/constraints.yaml
+      conditional:
+        - file: state/skills.yaml
+          when: "Knowledge or competence may be limiting progress."
+        - file: state/strategic-goals.yaml
+          when: "The blocker may reflect a priority or direction problem."
+    objectives:
+      - "Distinguish the symptom from the likely bottleneck."
+      - "Separate observed facts, interpretations, and unknowns."
+      - "Distinguish actionable from non-actionable factors."
+      - "Reduce vague difficulty into a concrete next step."
+      - "Choose whether to continue, simplify, get information, test, defer, or reprioritize."
+    decision_outputs:
+      optional_fields:
+        - observed_problem
+        - possible_blocker_categories
+        - evidence
+        - likely_bottleneck
+        - smallest_useful_next_action
+        - defer_or_reprioritize_decision
+    state_updates:
+      may_update:
+        - execution.today.blockers
+        - execution.recurring_blockers
+        - execution.unresolved_decisions
+        - projects.blockers
+        - projects.next_deliverable
+      update_basis: "Observed or user-confirmed blocker facts; hypotheses must remain labeled as hypotheses."
+    avoid:
+      - "Making psychological diagnoses."
+      - "Assuming every blocker is lack of discipline."
+      - "Prolonging emotional rumination after the actionable issue is clear."
+      - "Ignoring health or capacity constraints."
+    completion_condition: "The blocker is sufficiently specified and a feasible next action or disposition has been chosen."
+
+  - session_id: S5
+    name: End-of-Day Review
+    purpose: "Compare intended work with actual execution and extract a useful correction for the next day."
+    default_supervision_relevance: high
+    default_depth: standard
+    entry_conditions:
+      - "the learner requests or begins an end-of-day review."
+      - "A future external scheduler initiates the review."
+    state_to_read:
+      required:
+        - state/execution.yaml
+        - state/projects.yaml
+        - state/constraints.yaml
+      conditional: []
+    objectives:
+      - "Compare planned outputs with completed outputs."
+      - "Record deferred and unexpected work."
+      - "Identify why material deviations occurred."
+      - "Assess whether the plan and priorities were realistic."
+      - "Choose carryover and one useful correction for tomorrow."
+      - "Escalate to deep only when repeated or consequential problems appear."
+    decision_outputs:
+      optional_fields:
+        - planned_versus_completed
+        - concrete_outputs
+        - deferred_work
+        - deviation_factors
+        - plan_quality
+        - carryover
+        - tomorrow_correction
+    state_updates:
+      may_update:
+        - execution.today
+        - execution.recent_progress_reports
+        - execution.recent_commitments
+        - execution.recurring_blockers
+        - projects
+      update_basis: "User-reported execution facts and explicit next-day decisions."
+    avoid:
+      - "Equating hours spent with progress."
+      - "Punishing deviations caused by legitimate constraints."
+      - "Overanalyzing one imperfect day."
+      - "Changing stable goals because of a single difficult day."
+    completion_condition: "Today's factual record, carryover, and tomorrow's main correction are clear."
+
+  - session_id: S6
+    name: Weekly Review
+    purpose: "Evaluate execution quality and strategic direction as separate levels."
+    default_supervision_relevance: high
+    default_depth: deep
+    entry_conditions:
+      - "the learner requests or begins a weekly review."
+      - "A future external scheduler initiates the weekly review."
+    state_to_read:
+      required:
+        - state/strategic-goals.yaml
+        - state/projects.yaml
+        - state/execution.yaml
+        - state/constraints.yaml
+      conditional:
+        - file: state/skills.yaml
+          when: "Skill development was planned or affects readiness."
+        - file: state/career.yaml
+          when: "Career milestones or readiness were in scope."
+    objectives:
+      - "Evaluate planned versus completed outputs and repeated slippage."
+      - "Identify recurring blockers without converting them into personality judgments."
+      - "Assess whether effort advanced the right strategic goals."
+      - "Decide which projects continue, reduce, activate, or remain parked."
+      - "Detect deadline risk and excessive attention fragmentation."
+      - "Select a small number of next-week priorities."
+    decision_outputs:
+      optional_fields:
+        - week_summary
+        - major_wins
+        - missed_commitments
+        - recurring_blockers
+        - strategic_assessment
+        - projects_to_continue
+        - projects_to_reduce
+        - projects_to_activate
+        - next_week_top_priorities
+        - parked_ideas
+    state_updates:
+      may_update:
+        - execution.current_week
+        - execution.recent_commitments
+        - execution.recurring_blockers
+        - execution.new_project_ideas
+        - projects
+        - skills.evidence_of_mastery
+        - career.assets
+      update_basis: "Week-level facts and explicit decisions confirmed during review."
+    avoid:
+      - "Treating every available state field as required discussion material."
+      - "Activating queued projects without an explicit decision."
+      - "Collapsing execution failure and strategic misdirection into one judgment."
+      - "Sacrificing protected constraints to recover missed work."
+    completion_condition: "The week is factually summarized, direction is assessed, and next week's priorities are decided."
+
+  - session_id: S7
+    name: Priority Decision
+    purpose: "Choose what to work on when several valuable tasks compete."
+    default_supervision_relevance: high
+    default_depth: standard
+    entry_conditions:
+      - "the learner asks which of multiple tasks or projects should receive attention."
+      - "Available capacity cannot accommodate all current candidates."
+    state_to_read:
+      required:
+        - state/projects.yaml
+        - state/constraints.yaml
+      conditional:
+        - file: state/strategic-goals.yaml
+          when: "Strategic importance is not obvious from projects alone."
+        - file: state/execution.yaml
+          when: "Current commitments, carryover, or today's capacity affect the choice."
+        - file: state/skills.yaml
+          when: "The choice concerns skill sequencing."
+        - file: state/career.yaml
+          when: "The choice affects job-search timing or readiness."
+    objectives:
+      - "Compare urgency, strategic importance, dependency value, cost of delay, and completion proximity."
+      - "Determine whether one task blocks meaningful downstream work."
+      - "Choose a priority or an explicit sequence rather than relying on excitement alone."
+    decision_outputs:
+      optional_fields:
+        - selected_priority
+        - sequence
+        - decision_factors
+        - deferred_candidates
+        - reconsideration_condition
+    state_updates:
+      may_update:
+        - execution.today
+        - execution.current_week
+        - execution.recent_commitments
+        - projects.priority
+      update_basis: "Explicit priority or sequencing decision accepted by the learner."
+    avoid:
+      - "Ranking only by novelty or excitement."
+      - "Treating every target date as equally binding."
+      - "Rewriting stable strategic goals without user authorization."
+    completion_condition: "The competing work has a clear priority or sequence and deferred work is explicit."
+
+  - session_id: S8
+    name: New Project or New Idea Evaluation
+    purpose: "Evaluate new work without allowing interest alone to expand the active load."
+    default_supervision_relevance: high
+    default_depth: standard
+    entry_conditions:
+      - "the learner proposes a new project, paper, learning track, or significant side objective."
+      - "A parked idea is being reconsidered for activation."
+    state_to_read:
+      required:
+        - state/projects.yaml
+        - state/strategic-goals.yaml
+        - state/constraints.yaml
+      conditional:
+        - file: state/execution.yaml
+          when: "Current commitments, deadlines, or parked ideas affect feasibility."
+        - file: state/career.yaml
+          when: "The idea is justified primarily as career evidence."
+    objectives:
+      - "Assess strategic fit, opportunity cost, active-project load, timing, and capacity."
+      - "Choose among activate now, schedule later, park, or discard."
+      - "Preserve a useful idea without silently making it an active commitment."
+    decision_outputs:
+      optional_fields:
+        - disposition
+        - strategic_fit
+        - opportunity_cost
+        - activation_preconditions
+        - parked_idea_record
+    state_updates:
+      may_update:
+        - execution.new_project_ideas.parked
+        - projects
+      update_basis: "Explicit disposition decision; aspiration alone does not create an active project."
+    avoid:
+      - "Automatically rejecting every new idea."
+      - "Activating a project solely because it is interesting."
+      - "Hiding the displacement cost to existing commitments."
+    completion_condition: "The idea has an explicit disposition and, if not active, a clear record or reason."
+
+  - session_id: S9
+    name: Learning Session or Skill Question
+    purpose: "Teach or assist with technical, analytical, research, and professional skills."
+    default_supervision_relevance: low
+    default_depth: light
+    entry_conditions:
+      - "The dominant intent is explanation, practice help, conceptual learning, or technical instruction."
+    state_to_read:
+      required: []
+      conditional:
+        - file: state/skills.yaml
+          when: "Current level, sequencing, or mastery affects the answer."
+        - file: state/projects.yaml
+          when: "The question is tied to a current project or portfolio decision."
+    objectives:
+      - "Answer the learning question clearly and directly."
+      - "Use current skill state only when it materially improves the explanation or sequence."
+      - "Increase relevance to high only if planning, accountability, or progress evaluation becomes the dominant need."
+    decision_outputs:
+      optional_fields:
+        - direct_explanation
+        - example
+        - practice_step
+        - sequencing_advice
+    state_updates:
+      may_update:
+        - skills.evidence_of_mastery
+        - execution.recent_progress_reports
+      update_basis: "Only demonstrated work or an explicit self-assessment; asking a question is not evidence of mastery."
+    avoid:
+      - "Turning every learning question into accountability coaching."
+      - "Invoking unrelated projects, deadlines, or career goals."
+      - "Inferring competence from exposure to an explanation."
+    completion_condition: "The immediate learning question is answered at an appropriate level."
+
+  - session_id: S10
+    name: Career Preparation
+    purpose: "Support CV, LinkedIn, interviews, role selection, applications, and portfolio positioning."
+    default_supervision_relevance: medium
+    default_depth: standard
+    entry_conditions:
+      - "The dominant intent concerns career materials, role choice, interview preparation, applications, or portfolio positioning."
+    state_to_read:
+      required:
+        - state/career.yaml
+      conditional:
+        - file: state/skills.yaml
+          when: "Readiness or skill evidence affects the advice."
+        - file: state/projects.yaml
+          when: "Project evidence or portfolio positioning is relevant."
+        - file: state/strategic-goals.yaml
+          when: "A major career-direction decision is under consideration."
+        - file: state/execution.yaml
+          when: "The session concerns preparation progress or commitments."
+    objectives:
+      - "Answer the immediate career question using current readiness evidence."
+      - "Preserve the learner's stated role families unless the learner changes them."
+      - "Distinguish material readiness gaps from optional polish."
+      - "Escalate relevance when deadlines, execution, or readiness evaluation dominate."
+    decision_outputs:
+      optional_fields:
+        - career_advice
+        - role_fit_comparison
+        - asset_revision
+        - readiness_gap
+        - next_preparation_action
+    state_updates:
+      may_update:
+        - career
+        - execution.recent_commitments
+        - projects
+      update_basis: "Completed asset changes, interview/application facts, or explicit career decisions."
+    avoid:
+      - "Assuming one role family is the only valid direction."
+      - "Marking an asset final merely because it is usable."
+      - "Claiming readiness without evidence."
+    completion_condition: "The career question is answered and any resulting decision or next action is explicit."
+
+  - session_id: S11
+    name: Ad Hoc Advice or Ordinary Assistance
+    purpose: "Handle ordinary questions that do not materially benefit from supervisor mechanics."
+    default_supervision_relevance: low
+    default_depth: light
+    entry_conditions:
+      - "The dominant intent is factual, explanatory, writing, coding, research, grammar, or ordinary brainstorming assistance."
+      - "Progress evaluation, accountability, prioritization, and state change are not materially needed."
+    state_to_read:
+      required: []
+      conditional:
+        - file: state/profile.yaml
+          when: "A stable background fact materially improves the answer."
+    objectives:
+      - "Answer the user's request directly."
+      - "Use no supervisory machinery beyond what materially improves the answer."
+    decision_outputs:
+      optional_fields:
+        - direct_answer
+        - requested_artifact
+    state_updates:
+      may_update: []
+      update_basis: "Ordinary assistance does not update state unless the user also provides a clear state-changing fact, which is handled as a secondary session."
+    avoid:
+      - "Forcing planning, accountability, diagnosis, or goal reminders into the response."
+      - "Loading unrelated state."
+      - "Turning a simple request into a productivity intervention."
+    completion_condition: "The immediate request is answered or completed."

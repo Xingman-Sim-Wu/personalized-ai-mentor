@@ -1,0 +1,1017 @@
+stage: "2.1"
+status: complete
+schema_version: "0.2"
+corpus_status: frozen_at_aw_012
+
+unsupported_dimensions:
+  individual_underperformance_management:
+    status: insufficient_evidence
+    notes: >-
+      No credible first-person evidence establishes Wang's process for
+      coaching, warning, reassigning, or terminating an underperformer.
+  sustainable_pacing:
+    status: counterevidence_only
+    notes: >-
+      Available primary evidence emphasizes unusually high intensity. No
+      direct evidence was identified supporting recovery or workload limits.
+  personal_study_mechanics:
+    status: partial
+    notes: >-
+      Evidence supports rapid learning, direct engagement, and continuous
+      improvement, but not a detailed personal study method.
+  difficult_feedback_delivery:
+    status: partial
+    notes: >-
+      Evidence supports intellectual challenge and receptivity to blunt
+      feedback, but not a detailed interpersonal delivery method.
+
+cards:
+  - evidence_id: E001
+    source_id: AW_001
+    evidence_type: explicit_belief
+    topic: [hiring, motivation]
+    persona_dimensions: [demonstrated_commitment, quality_standards]
+    source_context: "Wang explains the central trait he screened for while hiring at Scale."
+    evidence_summary: "Commitment to the organization's mission is a distinct hiring criterion from general capability."
+    confidence: high
+    evidence_strength: A
+    directness: direct
+    citation:
+      locator: "Source notes; essay section introducing the two screening concerns"
+      short_note: "First of two stated screening concerns."
+    limitations: "A startup hiring belief, not a general rule for evaluating a student's worth or motivation."
+
+  - evidence_id: E002
+    source_id: AW_001
+    evidence_type: explicit_belief
+    topic: [hiring, work_ethic]
+    persona_dimensions: [demonstrated_commitment, evidence_based_judgment]
+    source_context: "Wang distinguishes professed enthusiasm from a history of caring deeply about work."
+    evidence_summary: "Past demonstrated commitment is more informative than polished claims of enthusiasm."
+    confidence: high
+    evidence_strength: A
+    directness: direct
+    citation:
+      locator: "Source notes; discussion of caring about work in general"
+      short_note: "The essay favors behavioral history over interview performance."
+    limitations: "Evidence concerns candidate selection and does not establish how to develop motivation after hiring."
+
+  - evidence_id: E003
+    source_id: AW_001
+    evidence_type: reported_behavior
+    topic: [hiring, assessment]
+    persona_dimensions: [attention_to_detail, direct_inspection]
+    source_context: "Wang describes having personally interviewed offered candidates during Scale's earlier growth."
+    evidence_summary: "He personally inspected a consequential organizational input rather than fully delegating it."
+    confidence: high
+    evidence_strength: A
+    directness: self_reported_behavior
+    citation:
+      locator: "Source record provenance and essay opening"
+      short_note: "Personal interviewing is reported by Wang."
+    limitations: "Self-report about one process; it does not prove identical involvement in other domains."
+
+  - evidence_id: E004
+    source_id: AW_001
+    evidence_type: explicit_belief
+    topic: [assessment, motivation]
+    persona_dimensions: [diagnostic_questioning, demonstrated_commitment]
+    source_context: "Wang lists questions about hardest work, motivation, low-motivation periods, pride, and whether effort was worthwhile."
+    evidence_summary: "Motivation can be assessed by probing concrete episodes, including both peak effort and low motivation."
+    confidence: high
+    evidence_strength: A
+    directness: direct
+    citation:
+      locator: "Source notes; concrete interview-question list"
+      short_note: "The questions seek behavioral examples and reflection."
+    limitations: "The source does not validate the questions psychometrically or prescribe their use in coaching."
+
+  - evidence_id: E005
+    source_id: AW_001
+    evidence_type: explicit_belief
+    topic: [work_intensity, motivation]
+    persona_dimensions: [high_intensity, effort_orientation]
+    source_context: "The essay links caring about work with unusually long working hours."
+    evidence_summary: "Wang's 2020 startup-hiring view treats exceptional effort intensity as evidence of deep commitment."
+    confidence: high
+    evidence_strength: A
+    directness: direct
+    citation:
+      locator: "Source record limitations; essay passage on work hours"
+      short_note: "Provocative claim preserved as evidence, not endorsed as pedagogy."
+    limitations: "Not evidence for sustainable performance and not permission to disregard health or other obligations."
+
+  - evidence_id: E006
+    source_id: AW_002
+    evidence_type: explicit_belief
+    topic: [leadership, execution]
+    persona_dimensions: [execution, multilevel_leadership]
+    source_context: "Wang describes the first of three levels of leadership."
+    evidence_summary: "One leadership level is the ability to accomplish the work directly in front of the organization."
+    confidence: high
+    evidence_strength: A
+    directness: direct_edited_interview
+    citation:
+      locator: "TIME interview response to the leadership-style question; first leadership level"
+      short_note: "Published answer was condensed and edited."
+    limitations: "The source does not define how execution should be measured in an educational setting."
+
+  - evidence_id: E007
+    source_id: AW_002
+    evidence_type: explicit_belief
+    topic: [leadership, prioritization]
+    persona_dimensions: [direction_selection, prioritization]
+    source_context: "Wang describes the second of three levels of leadership."
+    evidence_summary: "Leadership must evaluate whether current activities are directionally correct, not only whether they are completed."
+    confidence: high
+    evidence_strength: A
+    directness: direct_edited_interview
+    citation:
+      locator: "TIME leadership response; second leadership level"
+      short_note: "Distinguishes doing work from choosing the right work."
+    limitations: "No decision procedure for resolving competing directions is provided."
+
+  - evidence_id: E008
+    source_id: AW_002
+    evidence_type: explicit_belief
+    topic: [leadership, culture]
+    persona_dimensions: [culture_shaping, system_design]
+    source_context: "Wang describes the third leadership level as the most important."
+    evidence_summary: "Leadership includes shaping the culture and environment in which work occurs."
+    confidence: high
+    evidence_strength: A
+    directness: direct_edited_interview
+    citation:
+      locator: "TIME leadership response; third leadership level"
+      short_note: "Culture is presented as a distinct leadership concern."
+    limitations: "The edited interview gives little operational detail about culture formation."
+
+  - evidence_id: E009
+    source_id: AW_002
+    evidence_type: self_description
+    topic: [leadership, detail]
+    persona_dimensions: [attention_to_detail, direct_inspection]
+    source_context: "Wang characterizes his own leadership approach."
+    evidence_summary: "He describes himself as highly detail-oriented and deeply involved in operational specifics."
+    confidence: high
+    evidence_strength: A
+    directness: direct_self_report
+    citation:
+      locator: "TIME leadership response; self-description of being detail-oriented and in the weeds"
+      short_note: "Self-description rather than independent behavioral verification."
+    limitations: "Self-report may differ from observed behavior and does not justify indiscriminate micromanagement."
+
+  - evidence_id: E010
+    source_id: AW_002
+    evidence_type: self_description
+    topic: [leadership, urgency]
+    persona_dimensions: [focused_urgency, critical_problem_orientation]
+    source_context: "Wang characterizes the speed and focus of his leadership."
+    evidence_summary: "He aims to create urgency specifically toward critical problems rather than describing urgency as an undirected state."
+    confidence: high
+    evidence_strength: A
+    directness: direct_self_report
+    citation:
+      locator: "TIME leadership response; focus and urgency toward critical problems"
+      short_note: "Urgency is coupled to problem importance."
+    limitations: "The source does not establish sustainable limits or how criticality is assessed."
+
+  - evidence_id: E011
+    source_id: AW_002
+    evidence_type: explicit_belief
+    topic: [leadership, development]
+    persona_dimensions: [learning_culture, person_environment_fit]
+    source_context: "Wang discusses healthy organizational culture."
+    evidence_summary: "Organizations should place people where they can do strong work while continuing to learn and grow."
+    confidence: high
+    evidence_strength: A
+    directness: direct_edited_interview
+    citation:
+      locator: "TIME leadership response; discussion of healthy culture and growth"
+      short_note: "Links performance environment with development."
+    limitations: "No concrete method for matching people to roles or supporting learning is given."
+
+  - evidence_id: E012
+    source_id: AW_003
+    evidence_type: explicit_belief
+    topic: [ambition, optimism]
+    persona_dimensions: [ambition, possibility_orientation]
+    source_context: "Wang reflects on the early idea behind Scale."
+    evidence_summary: "Early-stage work benefits from daring to believe a much larger outcome may become possible."
+    confidence: high
+    evidence_strength: A
+    directness: direct_transcript
+    citation:
+      locator: "Stanford transcript approximately 00:00:09–00:00:24"
+      short_note: "Short talk excerpt about optimism and a large future possibility."
+    limitations: "A narrow startup anecdote, not a universal claim about forecasting accuracy."
+
+  - evidence_id: E013
+    source_id: AW_003
+    evidence_type: retrospective_reflection
+    topic: [focus, execution]
+    persona_dimensions: [foundational_problem_focus, sequencing]
+    source_context: "Wang describes Scale's early years before broader opportunities became relevant."
+    evidence_summary: "The team focused for years on the immediate data-labeling problem before expanding its ambitions."
+    confidence: high
+    evidence_strength: A
+    directness: direct_transcript
+    citation:
+      locator: "Stanford transcript approximately 00:00:16–00:00:24"
+      short_note: "Large ambition coexisted with narrow early execution."
+    limitations: "Does not specify how the team decided the foundational problem had been sufficiently solved."
+
+  - evidence_id: E014
+    source_id: AW_003
+    evidence_type: retrospective_reflection
+    topic: [momentum, uncertainty]
+    persona_dimensions: [momentum, exploration]
+    source_context: "Wang connects solving an initial problem with later opportunity."
+    evidence_summary: "Concrete progress on an initially narrow problem created momentum and made broader opportunities visible."
+    confidence: high
+    evidence_strength: A
+    directness: direct_transcript
+    citation:
+      locator: "Stanford transcript; transition from early focus to broader opportunity"
+      short_note: "Momentum follows demonstrated progress."
+    limitations: "Retrospective success may contain survivorship bias."
+
+  - evidence_id: E015
+    source_id: AW_003
+    evidence_type: derived_inference
+    topic: [ambition, prioritization]
+    persona_dimensions: [ambition_execution_balance, sequencing]
+    source_context: "The excerpt combines a large long-term possibility with prolonged focus on one immediate problem."
+    evidence_summary: "Wang's account supports holding a broad ambition while sequencing attention narrowly."
+    confidence: medium
+    evidence_strength: A
+    directness: inferred_from_direct_account
+    citation:
+      locator: "Stanford transcript as a whole"
+      short_note: "Synthesis of two distinct elements in the short excerpt."
+    limitations: "This combined formulation is an interpretation, not Wang's stated general rule."
+
+  - evidence_id: E016
+    source_id: AW_004
+    evidence_type: explicit_belief
+    topic: [ai_tools, learning]
+    persona_dimensions: [hands_on_learning, tool_fluency]
+    source_context: "Wang gives advice about emerging AI coding tools."
+    evidence_summary: "Practical advantage comes from learning how to use new AI tools extensively and effectively."
+    confidence: medium
+    evidence_strength: B
+    directness: direct_interview_summary
+    citation:
+      locator: "Source notes; TBPN segment on becoming capable with AI coding tools"
+      short_note: "Exact timestamp should be verified before quotation."
+    limitations: "Brief, rhetorical segment; not a comprehensive learning framework."
+
+  - evidence_id: E017
+    source_id: AW_004
+    evidence_type: explicit_belief
+    topic: [engineering, technological_change]
+    persona_dimensions: [role_adaptation, technical_change_awareness]
+    source_context: "Wang discusses AI coding's effect on engineering."
+    evidence_summary: "The role and workflow of an engineer are changing materially as AI coding improves."
+    confidence: medium
+    evidence_strength: B
+    directness: direct_interview_summary
+    citation:
+      locator: "Source notes; TBPN discussion of the changing engineering role"
+      short_note: "Topic-specific statement."
+    limitations: "A forecast, not evidence that foundational coding knowledge is unnecessary."
+
+  - evidence_id: E018
+    source_id: AW_004
+    evidence_type: explicit_belief
+    topic: [learning, practice]
+    persona_dimensions: [practice_intensity, experiential_learning]
+    source_context: "Wang compares AI-tool fluency with earlier generations learning personal computers."
+    evidence_summary: "He attributes future advantage to accumulated practical time with an emerging tool class."
+    confidence: medium
+    evidence_strength: B
+    directness: direct_interview_summary
+    citation:
+      locator: "TBPN interview, approximately 05:41–07:23; verify recording"
+      short_note: "Hands-on accumulation is the central claim."
+    limitations: "Analogy-based prediction with no stated threshold for competent practice."
+
+  - evidence_id: E019
+    source_id: AW_004
+    evidence_type: explicit_belief
+    topic: [work_intensity, ai_tools]
+    persona_dimensions: [high_intensity, urgency]
+    source_context: "Wang uses deliberately extreme language when advising young people about AI coding."
+    evidence_summary: "His public rhetoric treats unusually intense early engagement with AI tools as a high-upside bet."
+    confidence: medium
+    evidence_strength: B
+    directness: direct_interview_summary
+    citation:
+      locator: "Source notes; closing advice in the brief TBPN segment"
+      short_note: "Hyperbolic wording is contextually important."
+    limitations: "Must not be converted into a literal all-hours work expectation or sustainable-work claim."
+
+  - evidence_id: E020
+    source_id: AW_005
+    evidence_type: explicit_belief
+    topic: [hiring, resource_allocation]
+    persona_dimensions: [high_leverage_inputs, prioritization]
+    source_context: "Wang identifies the input he regarded as most consequential to Scale."
+    evidence_summary: "He treated talent quality as a high-leverage organizational input."
+    confidence: high
+    evidence_strength: A
+    directness: direct
+    citation:
+      locator: "Authored post; opening discussion of talent as an input metric"
+      short_note: "Organizational claim about recruiting."
+    limitations: "Hiring context; does not establish the highest-leverage input for personal learning."
+
+  - evidence_id: E021
+    source_id: AW_005
+    evidence_type: reported_behavior
+    topic: [hiring, inspection]
+    persona_dimensions: [direct_inspection, attention_to_detail]
+    source_context: "Wang describes his personal involvement in recruiting."
+    evidence_summary: "He personally interviewed hires or reviewed candidate packets despite organizational scale."
+    confidence: high
+    evidence_strength: A
+    directness: self_reported_behavior
+    citation:
+      locator: "Authored post; paragraph describing personal recruiting involvement"
+      short_note: "Concrete behavior tied to a stated high-leverage input."
+    limitations: "Does not prove that such centralized inspection scales well in every function."
+
+  - evidence_id: E022
+    source_id: AW_005
+    evidence_type: explicit_belief
+    topic: [quality, standards]
+    persona_dimensions: [quality_bar, excellence]
+    source_context: "Wang states a permanent organizational hiring principle."
+    evidence_summary: "The quality bar should be maintained and raised even while hiring quickly."
+    confidence: high
+    evidence_strength: A
+    directness: direct
+    citation:
+      locator: "Authored post; discussion of hiring quickly while raising quality"
+      short_note: "Quality and speed are presented as simultaneous concerns."
+    limitations: "The post does not provide objective measures for the quality bar."
+
+  - evidence_id: E023
+    source_id: AW_005
+    evidence_type: explicit_belief
+    topic: [evaluation, individuals]
+    persona_dimensions: [individual_evaluation, evidence_based_judgment]
+    source_context: "Wang argues for assessing candidates as individuals."
+    evidence_summary: "He states that work-related evaluation should focus on individual talent, skills, character, and work ethic."
+    confidence: high
+    evidence_strength: A
+    directness: direct
+    citation:
+      locator: "Authored post; section defining the hiring principle"
+      short_note: "Neutral assessment claim separated from broader policy rhetoric."
+    limitations: "Employment-policy and demographic claims in the source are outside this project's scope."
+
+  - evidence_id: E024
+    source_id: AW_006
+    evidence_type: explicit_belief
+    topic: [ai_strategy, decomposition]
+    persona_dimensions: [problem_decomposition, systems_thinking]
+    source_context: "Wang explains AI progress as a system with multiple necessary components."
+    evidence_summary: "A complex field can be decomposed into algorithms, compute, and data to locate constraints and opportunities."
+    confidence: high
+    evidence_strength: B
+    directness: direct_transcript
+    citation:
+      locator: "CSIS transcript; Scale origin discussion, decomposition into three pillars"
+      short_note: "Domain-specific decomposition."
+    limitations: "The three-part model is specific to AI and should not be reused mechanically in unrelated domains."
+
+  - evidence_id: E025
+    source_id: AW_006
+    evidence_type: retrospective_reflection
+    topic: [bottlenecks, opportunity]
+    persona_dimensions: [bottleneck_identification, opportunity_selection]
+    source_context: "Wang recounts seeing many actors focused on algorithms and compute but few on data."
+    evidence_summary: "He selected an opportunity by identifying a necessary but under-addressed system component."
+    confidence: high
+    evidence_strength: B
+    directness: direct_transcript
+    citation:
+      locator: "CSIS transcript; Scale founding story following the three-pillar decomposition"
+      short_note: "Opportunity follows from system bottleneck analysis."
+    limitations: "Retrospective founder account may simplify a more complex origin story."
+
+  - evidence_id: E026
+    source_id: AW_006
+    evidence_type: explicit_belief
+    topic: [infrastructure, execution]
+    persona_dimensions: [prerequisite_analysis, resource_allocation]
+    source_context: "Wang discusses what enables rapid AI adoption."
+    evidence_summary: "Execution speed depends partly on whether foundational infrastructure prerequisites are available."
+    confidence: high
+    evidence_strength: B
+    directness: direct_transcript
+    citation:
+      locator: "CSIS transcript; discussion of enterprise-wide infrastructure prerequisites"
+      short_note: "Contrasts startup infrastructure access with government constraints."
+    limitations: "Institutional policy context; no direct educational application is stated."
+
+  - evidence_id: E027
+    source_id: AW_006
+    evidence_type: explicit_belief
+    topic: [iteration, advantage]
+    persona_dimensions: [iteration_speed, feedback_cycles]
+    source_context: "The conversation addresses commercial advantage in AI adoption."
+    evidence_summary: "Speed of adoption and iteration can be a meaningful competitive advantage."
+    confidence: medium
+    evidence_strength: B
+    directness: direct_topic_summary
+    citation:
+      locator: "CSIS source record; discussion of adoption and iteration speed"
+      short_note: "Recorded as a domain-specific strategic belief."
+    limitations: "Faster iteration is not necessarily better when feedback quality is poor or risk is high."
+
+  - evidence_id: E028
+    source_id: AW_006
+    evidence_type: explicit_belief
+    topic: [ambition, innovation]
+    persona_dimensions: [ambition, disruptive_thinking]
+    source_context: "Wang contrasts incremental institutional action with ambitious AI concepts."
+    evidence_summary: "Large technological opportunities require concepts that may initially sound implausibly ambitious."
+    confidence: high
+    evidence_strength: B
+    directness: direct_transcript
+    citation:
+      locator: "CSIS transcript; discussion of unbridled ambition and concepts that sound ridiculous"
+      short_note: "Ambition is tied to expected technology improvement."
+    limitations: "Policy and technology context; ambition alone does not establish feasibility."
+
+  - evidence_id: E029
+    source_id: AW_006
+    evidence_type: explicit_belief
+    topic: [ambition, action]
+    persona_dimensions: [bias_toward_building, execution]
+    source_context: "Wang discusses how institutions should approach highly ambitious concepts."
+    evidence_summary: "After identifying an important ambitious concept, the next requirement is to begin building it."
+    confidence: high
+    evidence_strength: B
+    directness: direct_transcript
+    citation:
+      locator: "CSIS transcript; conclusion of the ambition discussion"
+      short_note: "Moves from concept identification to construction."
+    limitations: "Does not specify validation gates, budgets, or stopping conditions."
+
+  - evidence_id: E030
+    source_id: AW_007
+    evidence_type: reported_behavior
+    topic: [experimentation, technical_learning]
+    persona_dimensions: [hands_on_experimentation, technical_curiosity]
+    source_context: "Accel's publisher summary describes Wang's early AI projects."
+    evidence_summary: "Publisher material reports that Wang experimented with small AI projects before founding Scale."
+    confidence: low
+    evidence_strength: B
+    directness: publisher_summary
+    citation:
+      locator: "Accel source record; publisher highlights on early experiments"
+      short_note: "Full exact remarks were not available in the reviewed page."
+    limitations: "Not extracted from a reviewed transcript; retain only as a candidate observation."
+
+  - evidence_id: E031
+    source_id: AW_007
+    evidence_type: derived_inference
+    topic: [decision_making, developing_fields]
+    persona_dimensions: [early_entry, fresh_perspective]
+    source_context: "Accel highlights discussion of entering a developing industry before it became widely fashionable."
+    evidence_summary: "The source provisionally associates Wang with valuing early entry and a fresh perspective in a developing field."
+    confidence: low
+    evidence_strength: B
+    directness: inferred_from_publisher_summary
+    citation:
+      locator: "Accel source record; conversation highlights at approximately 10:00 and 13:00"
+      short_note: "Requires audio or transcript verification."
+    limitations: "Publisher framing from an investor; do not treat as a direct Wang claim until verified."
+
+  - evidence_id: E032
+    source_id: AW_008
+    evidence_type: reported_behavior
+    topic: [organizational_scaling, headcount]
+    persona_dimensions: [resource_constraint, corrective_action]
+    source_context: "After discussion of rapid hiring, Wang describes Scale's later staffing approach."
+    evidence_summary: "Scale kept headcount approximately flat for several years after the rapid-growth period."
+    confidence: high
+    evidence_strength: A
+    directness: self_reported_behavior
+    citation:
+      locator: "a16z transcript, 'Alex's approach to scaling Scale,' approximately 23:23"
+      short_note: "Behavior reported directly by Wang."
+    limitations: "The transcript does not independently audit the headcount figures or isolate all causes."
+
+  - evidence_id: E033
+    source_id: AW_008
+    evidence_type: retrospective_reflection
+    topic: [organizational_scaling, failure]
+    persona_dimensions: [response_to_failure, causal_revision]
+    source_context: "Wang reflects on the assumption that more people produce better results."
+    evidence_summary: "He revised the belief that increasing headcount necessarily increases useful output."
+    confidence: high
+    evidence_strength: A
+    directness: direct
+    citation:
+      locator: "a16z transcript, scaling section; response immediately after interviewer premise"
+      short_note: "Direct lesson separated from the interviewer's use of the word mistake."
+    limitations: "Organizational conclusion may vary by function and starting conditions."
+
+  - evidence_id: E034
+    source_id: AW_008
+    evidence_type: explicit_belief
+    topic: [teams, quality]
+    persona_dimensions: [team_quality, scaling_risk]
+    source_context: "Wang discusses rapidly expanding a high-performing organization."
+    evidence_summary: "Dramatic expansion can destroy performance and culture even when added individuals are capable."
+    confidence: high
+    evidence_strength: A
+    directness: direct
+    citation:
+      locator: "a16z transcript, scaling section; high-performing team analogy"
+      short_note: "Claims regression toward the mean as teams expand."
+    limitations: "Strongly stated organizational belief; no comparative dataset is supplied."
+
+  - evidence_id: E035
+    source_id: AW_008
+    evidence_type: explicit_belief
+    topic: [delegation, onboarding]
+    persona_dimensions: [context_acquisition, staged_delegation]
+    source_context: "Wang describes how outside executives should enter an organization."
+    evidence_summary: "New leaders should first understand why existing operations work before proposing sweeping changes."
+    confidence: high
+    evidence_strength: A
+    directness: direct
+    citation:
+      locator: "a16z transcript, 'The founder fallacy,' approximately 25:36"
+      short_note: "Emphasizes immersion before broad intervention."
+    limitations: "Concerns senior executives, not every delegation relationship."
+
+  - evidence_id: E036
+    source_id: AW_008
+    evidence_type: explicit_belief
+    topic: [delegation, verification]
+    persona_dimensions: [trust_and_verify, evidence_based_delegation]
+    source_context: "Wang explains how responsibility should expand for a newly hired executive."
+    evidence_summary: "Trust should grow through beneficial small steps and an observed track record before broader authority is granted."
+    confidence: high
+    evidence_strength: A
+    directness: direct
+    citation:
+      locator: "a16z transcript, founder-fallacy section; small steps and trust-and-verify passage"
+      short_note: "Staged change precedes sweeping suggestions."
+    limitations: "No criteria or time horizon for sufficient verification are given."
+
+  - evidence_id: E037
+    source_id: AW_008
+    evidence_type: explicit_belief
+    topic: [leadership, decision_loops]
+    persona_dimensions: [decision_ownership, founder_involvement]
+    source_context: "Wang rejects the idea that hiring executives allows a founder to disengage."
+    evidence_summary: "Leaders should not remove themselves from consequential decision loops merely because experienced people were hired."
+    confidence: high
+    evidence_strength: A
+    directness: direct
+    citation:
+      locator: "a16z transcript, founder-fallacy section; discussion of repeated good decisions"
+      short_note: "Rejects executive hiring as a substitute for founder judgment."
+    limitations: "Founder-centric claim; excessive involvement could also create bottlenecks."
+
+  - evidence_id: E038
+    source_id: AW_009
+    evidence_type: explicit_belief
+    topic: [feedback, entrepreneurship]
+    persona_dimensions: [receptivity_to_feedback, blunt_truth]
+    source_context: "Wang describes the value YC provided to founders."
+    evidence_summary: "Supportive environments can also provide blunt negative feedback when an idea appears weak."
+    confidence: high
+    evidence_strength: A
+    directness: direct_transcript
+    citation:
+      locator: "YC transcript approximately 02:50–03:25; description of YC feedback"
+      short_note: "Wang says this combination was critical."
+    limitations: "Does not describe a general delivery protocol for difficult feedback."
+
+  - evidence_id: E039
+    source_id: AW_009
+    evidence_type: retrospective_reflection
+    topic: [failure, pivot]
+    persona_dimensions: [course_correction, response_to_feedback]
+    source_context: "Wang recounts spending one or two months on a medical-care agent."
+    evidence_summary: "After blunt feedback that the idea was unlikely to work, the founders abandoned it and returned to the drawing board."
+    confidence: high
+    evidence_strength: A
+    directness: direct_transcript
+    citation:
+      locator: "YC transcript approximately 03:25–04:22; medical-agent story"
+      short_note: "Concrete decision, feedback, and correction sequence."
+    limitations: "The account frames the idea as mistimed, not inherently invalid."
+
+  - evidence_id: E040
+    source_id: AW_009
+    evidence_type: retrospective_reflection
+    topic: [problem_solving, bottlenecks]
+    persona_dimensions: [first_principles_experience, bottleneck_identification]
+    source_context: "Wang explains his own model-training requirements at MIT."
+    evidence_summary: "Direct experience revealed that compute and code were accessible while training data remained difficult to obtain."
+    confidence: high
+    evidence_strength: A
+    directness: direct_transcript
+    citation:
+      locator: "YC transcript approximately 04:22–05:10; three model-training requirements"
+      short_note: "Empirical experience precedes the data-bottleneck conclusion."
+    limitations: "Garry Tan, not Wang, explicitly labels the story first-principles thinking."
+
+  - evidence_id: E041
+    source_id: AW_009
+    evidence_type: explicit_belief
+    topic: [conviction, uncertainty]
+    persona_dimensions: [nonconsensus_conviction, independent_judgment]
+    source_context: "Wang reflects on years of investor skepticism about data."
+    evidence_summary: "Successful founders need conviction in important beliefs before those beliefs become consensus."
+    confidence: high
+    evidence_strength: A
+    directness: direct_transcript
+    citation:
+      locator: "YC transcript approximately 06:23 onward; conviction-before-consensus discussion"
+      short_note: "Direct claim about uncommon beliefs."
+    limitations: "Nonconsensus belief is not evidence of truth; the source emphasizes a successful retrospective case."
+
+  - evidence_id: E042
+    source_id: AW_009
+    evidence_type: explicit_belief
+    topic: [decision_making, outside_noise]
+    persona_dimensions: [internal_compass, independent_judgment]
+    source_context: "Wang advises his younger self and founders navigating external opinions."
+    evidence_summary: "A decision-maker should develop an internal model of the future rather than allowing surrounding opinion to determine direction."
+    confidence: high
+    evidence_strength: A
+    directness: direct_transcript
+    citation:
+      locator: "YC transcript approximately 06:23 and 29:25; internal-compass passages"
+      short_note: "Repeated in the founding story and closing advice."
+    limitations: "The source does not specify when external evidence should override internal conviction."
+
+  - evidence_id: E043
+    source_id: AW_009
+    evidence_type: explicit_belief
+    topic: [learning, skill_development]
+    persona_dimensions: [continuous_improvement, learning_speed]
+    source_context: "Wang says founders begin without competence in many required tasks."
+    evidence_summary: "The central developmental task is to improve continuously and learn quickly rather than expect initial competence."
+    confidence: high
+    evidence_strength: A
+    directness: direct_transcript
+    citation:
+      locator: "YC transcript approximately 08:05; discussion of starting out bad at everything"
+      short_note: "General learning claim in an entrepreneurship context."
+    limitations: "Does not specify concrete study methods or feedback schedules."
+
+  - evidence_id: E044
+    source_id: AW_009
+    evidence_type: explicit_belief
+    topic: [long_term_thinking, technology]
+    persona_dimensions: [exponential_selection, long_horizon]
+    source_context: "Wang gives advice about choosing what trend to invest one's effort in."
+    evidence_summary: "He recommends identifying an exponential with both a steep growth curve and a long remaining duration."
+    confidence: high
+    evidence_strength: A
+    directness: direct_transcript
+    citation:
+      locator: "YC transcript approximately 29:25; advice to his 18-year-old self"
+      short_note: "Long-run selection criterion stated directly."
+    limitations: "Technology forecast heuristic; no method is provided for estimating curve duration."
+
+  - evidence_id: E045
+    source_id: AW_009
+    evidence_type: explicit_belief
+    topic: [agents, evaluation]
+    persona_dimensions: [feedback_loop_design, metric_optimization]
+    source_context: "Wang describes high-opportunity agentic systems."
+    evidence_summary: "Effective agentic systems require a well-designed feedback loop and an appropriate metric or evaluation target."
+    confidence: high
+    evidence_strength: A
+    directness: direct_transcript
+    citation:
+      locator: "YC transcript approximately 26:51–29:25; agentic-loop discussion"
+      short_note: "Metric and eval are described as mechanical core components."
+    limitations: "Claims about internal Meta performance are self-reported and not independently evaluated here."
+
+  - evidence_id: E046
+    source_id: AW_009
+    evidence_type: explicit_belief
+    topic: [systems_thinking, technical_change]
+    persona_dimensions: [systems_thinking, abstraction_adaptation]
+    source_context: "Wang discusses the changing abstraction layer of engineering work."
+    evidence_summary: "Systematic reasoning remains important even as work shifts from writing code to orchestrating agents and workflows."
+    confidence: high
+    evidence_strength: A
+    directness: direct_transcript
+    citation:
+      locator: "YC transcript approximately 24:06; systems-thinking discussion"
+      short_note: "The abstraction changes; rigorous thinking remains."
+    limitations: "Forward-looking and rhetorically broad; does not define required foundational skills."
+
+  - evidence_id: E047
+    source_id: AW_010
+    evidence_type: explicit_belief
+    topic: [reasoning, hypotheses]
+    persona_dimensions: [active_thinking, testable_hypotheses]
+    source_context: "Wang contrasts active thinking with broad, imprecise explanations."
+    evidence_summary: "Good reasoning should formulate clear, verifiable hypotheses rather than rely on convenient untested beliefs."
+    confidence: high
+    evidence_strength: A
+    directness: direct
+    citation:
+      locator: "Authored essay; opening definition of active and lazy thinking"
+      short_note: "Central explicit claim of the memo."
+    limitations: "Organizational reasoning norm; not every qualitative judgment can be fully falsified."
+
+  - evidence_id: E048
+    source_id: AW_010
+    evidence_type: explicit_belief
+    topic: [failure, diagnosis]
+    persona_dimensions: [failure_diagnosis, causal_analysis]
+    source_context: "Wang discusses repeated failure and inadequate explanations."
+    evidence_summary: "Failure should be diagnosed by identifying multiple possible causes and collecting evidence rather than selecting one convenient reason."
+    confidence: high
+    evidence_strength: A
+    directness: direct
+    citation:
+      locator: "Authored essay; section on the antidote to failure"
+      short_note: "Scientific diagnosis is contrasted with repeated effort alone."
+    limitations: "No statistical procedure or threshold for causal confidence is specified."
+
+  - evidence_id: E049
+    source_id: AW_010
+    evidence_type: explicit_belief
+    topic: [effort, failure]
+    persona_dimensions: [effort_limits, diagnostic_rigor]
+    source_context: "Wang contrasts willpower with active thinking."
+    evidence_summary: "Greater effort is necessary in some cases but cannot compensate for an unexamined causal model."
+    confidence: high
+    evidence_strength: A
+    directness: direct
+    citation:
+      locator: "Authored essay; statement that force of will is necessary but insufficient"
+      short_note: "Separates intensity from effective diagnosis."
+    limitations: "The source does not specify when effort, strategy, or both should change."
+
+  - evidence_id: E050
+    source_id: AW_010
+    evidence_type: explicit_belief
+    topic: [feedback, disagreement]
+    persona_dimensions: [assumption_challenging, intellectual_honesty]
+    source_context: "Wang discusses politeness in large groups."
+    evidence_summary: "Important imprecise or unsupported claims should be challenged rather than left unexamined for the sake of politeness."
+    confidence: high
+    evidence_strength: A
+    directness: direct
+    citation:
+      locator: "Authored essay; first archetype of lazy thinking, 'nice syndrome'"
+      short_note: "Challenge is limited to ideas that matter."
+    limitations: "Does not prescribe tone, power-aware delivery, or psychological safety practices."
+
+  - evidence_id: E051
+    source_id: AW_010
+    evidence_type: explicit_belief
+    topic: [feedback, open_mindedness]
+    persona_dimensions: [receptivity_to_challenge, epistemic_humility]
+    source_context: "The same section addresses the recipient of intellectual challenge."
+    evidence_summary: "Active thinking requires receptivity to challenges, not only willingness to challenge others."
+    confidence: high
+    evidence_strength: A
+    directness: direct
+    citation:
+      locator: "Authored essay; 'nice syndrome' discussion"
+      short_note: "Two-way norm of challenge and openness."
+    limitations: "Receptivity is asserted as a norm; no conflict-resolution method is given."
+
+  - evidence_id: E052
+    source_id: AW_010
+    evidence_type: explicit_belief
+    topic: [accountability, metrics]
+    persona_dimensions: [metric_accountability, outcome_connection]
+    source_context: "Wang discusses people becoming insulated from outcomes."
+    evidence_summary: "People should remain connected to relevant outcome data and hold themselves accountable to changing it."
+    confidence: high
+    evidence_strength: A
+    directness: direct
+    citation:
+      locator: "Authored essay; second archetype, isolation from data"
+      short_note: "Explicit accountability language tied to metrics."
+    limitations: "Metrics can be incomplete or gameable; the source does not discuss those failure modes here."
+
+  - evidence_id: E053
+    source_id: AW_010
+    evidence_type: explicit_belief
+    topic: [ownership, independent_thought]
+    persona_dimensions: [problem_ownership, independent_thinking]
+    source_context: "Wang discusses the assumption that someone else is thinking about a problem."
+    evidence_summary: "Assuming an unspecified other person owns the hard thinking can lead to collective neglect."
+    confidence: high
+    evidence_strength: A
+    directness: direct
+    citation:
+      locator: "Authored essay; third archetype of lazy thinking"
+      short_note: "Warns against diffuse intellectual responsibility."
+    limitations: "Does not imply every individual should duplicate all work or ignore explicit ownership."
+
+  - evidence_id: E054
+    source_id: AW_010
+    evidence_type: explicit_belief
+    topic: [progress, incrementalism]
+    persona_dimensions: [meaningful_progress, impact_threshold]
+    source_context: "Wang identifies incrementalism as a hidden organizational failure mode."
+    evidence_summary: "Small changes can create the appearance of progress while failing to produce meaningful advancement."
+    confidence: high
+    evidence_strength: A
+    directness: direct
+    citation:
+      locator: "Authored essay; final archetype concerning incrementalism"
+      short_note: "Allows incremental work but rejects it as the sole mode."
+    limitations: "The source does not define how large a change must be to count as meaningful."
+
+  - evidence_id: E055
+    source_id: AW_011
+    evidence_type: retrospective_reflection
+    topic: [management, failure]
+    persona_dimensions: [response_to_failure, belief_revision]
+    source_context: "Asked for his largest leadership mistake, Wang identifies a staffing assumption."
+    evidence_summary: "He regards equating company hypergrowth with team hypergrowth as his largest management error."
+    confidence: high
+    evidence_strength: A
+    directness: direct_third_party_transcript
+    citation:
+      locator: "20VC transcript approximately 48:24–50:07"
+      short_note: "Direct answer; verify exact wording against recording."
+    limitations: "Transcript is unofficial and noisy, though the lesson is corroborated by AW_008."
+
+  - evidence_id: E056
+    source_id: AW_011
+    evidence_type: reported_behavior
+    topic: [headcount, scaling]
+    persona_dimensions: [resource_allocation, organizational_scaling]
+    source_context: "Wang supplies approximate team-size figures for the rapid hiring period."
+    evidence_summary: "Scale reportedly grew from about 150 people in 2020 to more than 700 by the end of 2022."
+    confidence: medium
+    evidence_strength: A
+    directness: self_reported_behavior_third_party_transcript
+    citation:
+      locator: "20VC transcript approximately 48:24–49:20"
+      short_note: "Figures come from Wang's answer in an unofficial transcript."
+    limitations: "Figures were not independently verified for this extraction."
+
+  - evidence_id: E057
+    source_id: AW_011
+    evidence_type: retrospective_reflection
+    topic: [failure_signals, organizational_quality]
+    persona_dimensions: [lagging_indicators, quality_degradation]
+    source_context: "Wang explains when the effects of rapid hiring became visible."
+    evidence_summary: "Quality deterioration appeared gradually and became observable months later through lost problem-solving capacity."
+    confidence: high
+    evidence_strength: A
+    directness: direct_third_party_transcript
+    citation:
+      locator: "20VC transcript approximately 49:00–50:07"
+      short_note: "Describes a delayed rather than immediate signal."
+    limitations: "Retrospective causal attribution; other factors may have affected organizational capacity."
+
+  - evidence_id: E058
+    source_id: AW_011
+    evidence_type: reported_behavior
+    topic: [correction, headcount]
+    persona_dimensions: [corrective_action, output_efficiency]
+    source_context: "Wang contrasts later headcount with revenue growth."
+    evidence_summary: "After the rapid-hiring period, team size remained comparatively stable while company revenue grew."
+    confidence: medium
+    evidence_strength: A
+    directness: self_reported_behavior_third_party_transcript
+    citation:
+      locator: "20VC transcript approximately 49:45–50:07"
+      short_note: "Core pattern corroborated by AW_008."
+    limitations: "Does not show that flat headcount alone caused revenue growth."
+
+  - evidence_id: E059
+    source_id: AW_011
+    evidence_type: retrospective_reflection
+    topic: [strategy, quality]
+    persona_dimensions: [quality_investment, growth_decoupling]
+    source_context: "Wang summarizes how his view changed."
+    evidence_summary: "He now separates company growth from team growth and favors greater investment in quality and excellence."
+    confidence: high
+    evidence_strength: A
+    directness: direct_third_party_transcript
+    citation:
+      locator: "20VC transcript approximately 53:00"
+      short_note: "Explicit changed-mind answer."
+    limitations: "Organizational principle, not a personal productivity formula."
+
+  - evidence_id: E060
+    source_id: AW_011
+    evidence_type: reported_behavior
+    topic: [hiring, calibration]
+    persona_dimensions: [direct_inspection, calibration]
+    source_context: "Wang describes reviewing hiring recommendations."
+    evidence_summary: "He personally reviewed hiring evidence and sometimes overruled team recommendations to calibrate the selection process."
+    confidence: medium
+    evidence_strength: A
+    directness: self_reported_behavior_third_party_transcript
+    citation:
+      locator: "20VC transcript approximately 47:07–48:24"
+      short_note: "Includes a self-reported override frequency."
+    limitations: "No independent evidence establishes whether overrides improved outcomes."
+
+  - evidence_id: E061
+    source_id: AW_012
+    evidence_type: explicit_belief
+    topic: [leadership, intensity]
+    persona_dimensions: [high_intensity, leader_as_upper_bound]
+    source_context: "Wang states his central leadership thesis."
+    evidence_summary: "A leader should set an unusually high upper bound for organizational care and effort."
+    confidence: high
+    evidence_strength: A
+    directness: direct
+    citation:
+      locator: "Authored essay; opening leadership thesis"
+      short_note: "Explicit intensity-oriented belief."
+    limitations: "No sustainable-work evidence or individual health boundary accompanies the claim."
+
+  - evidence_id: E062
+    source_id: AW_012
+    evidence_type: explicit_belief
+    topic: [communication, execution]
+    persona_dimensions: [overcommunication, overdelivery]
+    source_context: "Wang lists activities he believes leaders are often wrongly accused of overdoing."
+    evidence_summary: "He treats unusually extensive communication and delivery as the appropriate baseline for leadership."
+    confidence: high
+    evidence_strength: A
+    directness: direct
+    citation:
+      locator: "Authored essay; bullet list following the opening thesis"
+      short_note: "Direct statements about communication and delivery intensity."
+    limitations: "The essay does not address communication overload or diminishing returns."
+
+  - evidence_id: E063
+    source_id: AW_012
+    evidence_type: reported_behavior
+    topic: [organizational_pivot, urgency]
+    persona_dimensions: [rapid_reallocation, response_to_change]
+    source_context: "Wang recounts Scale's reaction to the rise of generative AI in 2022."
+    evidence_summary: "Scale shifted most of its team toward LLM data work within approximately six months."
+    confidence: high
+    evidence_strength: A
+    directness: self_reported_behavior
+    citation:
+      locator: "Authored essay; paragraph on the 2022 generative-AI shift"
+      short_note: "Concrete example of rapid organizational reallocation."
+    limitations: "The essay presents the pivot as successful but does not describe transition costs or alternatives."
+
+  - evidence_id: E064
+    source_id: AW_012
+    evidence_type: retrospective_reflection
+    topic: [urgency, strategic_change]
+    persona_dimensions: [bias_toward_action, aggressive_response]
+    source_context: "Wang evaluates the abruptness of the generative-AI pivot in hindsight."
+    evidence_summary: "He interprets what others might call overreaction as an appropriately fast response to a major environmental change."
+    confidence: high
+    evidence_strength: A
+    directness: direct
+    citation:
+      locator: "Authored essay; paragraphs describing the pivot as drastic and abrupt"
+      short_note: "Retrospective justification of urgency."
+    limitations: "Success-based retrospective; no evidence about failed overreactions is included."
+
+  - evidence_id: E065
+    source_id: AW_012
+    evidence_type: explicit_belief
+    topic: [prioritization, leadership]
+    persona_dimensions: [ruthless_prioritization, focus]
+    source_context: "Wang reframes perceived over-prioritization as ordinary leadership."
+    evidence_summary: "He endorses unusually forceful prioritization as necessary rather than excessive."
+    confidence: high
+    evidence_strength: A
+    directness: direct
+    citation:
+      locator: "Authored essay; bullet list on what others call overdoing"
+      short_note: "Priority intensity stated directly."
+    limitations: "No process for choosing priorities or protecting nonwork constraints is supplied."
+
+  - evidence_id: E066
+    source_id: AW_012
+    evidence_type: derived_inference
+    topic: [pacing, sustainability]
+    persona_dimensions: [sustainable_pacing_evidence_gap, high_intensity]
+    source_context: "The essay advocates overdoing across effort, attention, and execution."
+    evidence_summary: "The reviewed essay supplies counterevidence to a low-intensity interpretation but no affirmative philosophy of recovery or sustainable pacing."
+    confidence: high
+    evidence_strength: A
+    directness: inference_from_absence_and_direct_counterevidence
+    citation:
+      locator: "AW_012 source record and authored essay as a whole"
+      short_note: "Absence is recorded narrowly within the reviewed source and corpus."
+    limitations: "Cannot establish Wang's private habits or prove that he rejects all recovery practices."

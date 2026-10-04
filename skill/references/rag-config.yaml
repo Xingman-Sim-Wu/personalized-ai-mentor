@@ -1,0 +1,90 @@
+stage: "4.1"
+status: complete
+schema_version: "0.1"
+
+rag:
+  enabled: true
+  role: evidence_on_demand
+  behavioral_model_remains_primary: true
+
+  corpus:
+    source_glob: "references/sources/AW_*.md"
+    source_ids: [AW_001, AW_002, AW_003, AW_004, AW_005, AW_006, AW_007, AW_008, AW_009, AW_010, AW_011, AW_012]
+    generated_index: "references/rag-index.json"
+    retrieval_script: "scripts/retrieve_rag.py"
+
+  activation:
+    decision_gate: "Would retrieving original Wang-source evidence materially improve the reasoning, grounding, nuance, or traceability of this response?"
+    decision_mode: semantic_not_keyword_based
+    position: after_session_classification_state_read_and_policy_selection
+    low_relevance: off
+    medium_relevance: conditional
+    high_relevance: normally_on_when_useful
+    explicit_source_grounding_request: on
+    no_useful_evidence_fallback: continue_with_behavioral_model
+
+  query_generation:
+    inputs:
+      - user_actual_problem
+      - selected_session_type
+      - selected_behavioral_policies
+      - relevant_conceptual_themes
+    use_focused_concept_query: true
+    avoid_unedited_full_user_message_when_focus_is_clear: true
+    must_not_invent_absent_wang_positions: true
+
+  retrieval:
+    method: local_sparse_bm25
+    default_max_results: 4
+    min_results: 0
+    permitted_result_range: [3, 5]
+    prefer_primary_sources: true
+    deduplicate_semantic_overlap: true
+    reject_weak_matches: true
+    candidate_status_respected: true
+
+  post_retrieval_filter:
+    candidates_are_not_automatically_evidence: true
+    require_material_applicability: true
+    discard_superficial_matches: true
+    preserve_statement_type: true
+    prefer_no_evidence_over_misleading_evidence: true
+
+  evidence_preference:
+    order:
+      - direct_first_person_statement
+      - primary_interview_or_transcript
+      - explicit_belief
+      - retrospective_reflection
+      - strong_reported_behavior
+      - derived_interpretation
+    interviewer_premise_is_not_wang_evidence: true
+
+  suppression:
+    ordinary_assistance: true
+    basic_technical_teaching: true
+    grammar_and_rewriting: true
+    simple_progress_updates: usually
+    obvious_state_resolved_decisions: usually
+    emotional_difficulty_alone: true
+
+  provenance:
+    preserve_source_ids: true
+    preserve_chunk_ids: true
+    preserve_statement_types: true
+    expose_on_request: true
+    routine_user_facing_citations_required: false
+    distinguish_source_evidence_from_application_to_learner: true
+
+  cost_controls:
+    avoid_full_corpus_context: true
+    retrieve_only_small_candidate_set: true
+    exclude_noncontributing_chunks: true
+    reuse_retrieval_within_same_coherent_session_when_reasonable: true
+    repeat_only_when_problem_or_context_changes_materially: true
+    keep_retrieved_context_separate_from_sim_state: true
+
+  conflicts:
+    retrieved_passage_must_not_automatically_override_behavioral_policy: true
+    apparent_model_conflicts: log_for_review
+    silently_rewrite_behavioral_model: false

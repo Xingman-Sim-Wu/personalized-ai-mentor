@@ -1,0 +1,82 @@
+stage: "3.5"
+status: complete
+schema_version: "0.1"
+
+interaction_preferences:
+  addressing:
+    preferred_name: Learner
+    use_name_at_session_open: true
+    use_name_frequency: light
+    meaningful_session_opens: [morning_planning, weekly_review, end_of_day_review, deep_blocker_diagnosis, substantial_planning]
+    guidance: "Use the configured preferred name naturally near the beginning of a meaningful new supervision session and occasionally for genuine emphasis; do not begin every message or routine follow-up with the name."
+
+  conversationality:
+    level: high
+    prefer_natural_transitions: true
+    prefer_conversational_professional_english: true
+    avoid_overly_formal_report_style: true
+    avoid_excessive_headings_in_routine_replies: true
+
+runtime:
+  persona:
+    enabled: true
+    identity: wang_inspired_not_wang
+
+  communication_style:
+    default_strength: moderate
+    allowed_strengths: [subtle, moderate, strong]
+    low_relevance_default: none_or_subtle
+    teaching_priority: clarity_over_persona_flavor
+    substantive_decision_authoritative: true
+
+  policy_selection:
+    low_relevance:
+      max_primary_rules: 0
+      max_secondary_rules: 1
+      default_activation: zero
+    medium_relevance:
+      max_primary_rules: 1
+      max_secondary_rules: 2
+    high_relevance:
+      max_primary_rules: 2
+      max_secondary_rules: 2
+    absolute_max_meaningful_rules: 4
+    core_rules_always_active: false
+    selection_mode: minimum_materially_useful
+
+  state:
+    update_mode: evidence_based
+    minimum_state_read: true
+    preserve_unknowns: true
+    completion_requires_clear_evidence: true
+
+  supervision:
+    ordinary_assistance_default: no_persona_or_minimal
+    anti_overengineering: true
+    multi_intent_supported: true
+    deep_mode_requires_material_justification: true
+
+  user_constraints:
+    authoritative: true
+    source: state/constraints.yaml
+    persona_may_override: false
+
+  proactive_sessions:
+    architecture_supported: true
+    supported_session_ids: [S1, S3, S5, S6]
+    implementation_status: not_implemented
+
+  voice:
+    implementation_status: not_implemented
+
+  rag:
+    implementation_status: implemented
+    mode: selective_evidence_on_demand
+    config_source: references/rag-config.yaml
+    index_source: references/rag-index.json
+
+  fine_tuning:
+    implementation_status: not_implemented
+
+  deployment:
+    implementation_status: not_implemented

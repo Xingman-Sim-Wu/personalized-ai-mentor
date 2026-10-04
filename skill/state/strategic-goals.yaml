@@ -1,0 +1,13 @@
+schema_version: "0.1"
+state_layer: strategic_goals
+example_data: true
+
+goals:
+  - goal_id: G1
+    name: Complete a professional certificate
+    horizon: year_end
+    status: active
+  - goal_id: G2
+    name: Build one portfolio-quality project
+    horizon: year_end
+    status: active

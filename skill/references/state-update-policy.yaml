@@ -1,0 +1,116 @@
+stage: "3.2"
+status: complete
+schema_version: "0.1"
+scope: "Rules for deciding whether and how conversation information changes the learner state."
+
+update_categories:
+  confirmed_factual_update:
+    definition: "A clear report of an event, output, result, or observable state."
+    examples:
+      - "A manuscript was submitted."
+      - "A study-plan item was finished."
+      - "A required learning tool was installed."
+      - "Five SQL problems were solved."
+    permitted_updates:
+      - "Update the directly affected project, execution record, or evidence record."
+      - "Change milestone or status only to the degree established by the fact."
+      - "Record assistance level or evidence quality when relevant."
+    prohibited_transformations:
+      - "Do not infer broader mastery from a single completion event."
+      - "Do not infer submission from manuscript readiness."
+
+  self_assessment_update:
+    definition: "A subjective report of comfort, confusion, confidence, perceived skill, or difficulty."
+    examples:
+      - "Joins still feel confusing."
+      - "SELECT feels comfortable now."
+    permitted_updates:
+      - "Record a dated note or tentative skill-state observation."
+      - "Record that validation evidence is still needed."
+    prohibited_transformations:
+      - "Do not convert subjective comfort directly into independent mastery."
+      - "Do not convert confusion into a fixed inability judgment."
+
+  planned_future_action:
+    definition: "An intention or commitment about work that has not yet occurred."
+    examples:
+      - "The revision will be finished tomorrow."
+    permitted_updates:
+      - "Record in execution planning, commitments, or planned outputs."
+      - "Record a target date only with its correct deadline type."
+    prohibited_transformations:
+      - "Do not mark the work complete, submitted, or mastered."
+      - "Do not turn a planned date into a hard deadline."
+
+  aspirational_statement:
+    definition: "A desired capability, project, or direction without an explicit activation decision."
+    examples:
+      - "I want to learn machine learning."
+    permitted_updates:
+      - "Record as a parked idea or possible future goal when useful."
+      - "Request an activation decision only when immediate treatment matters."
+    prohibited_transformations:
+      - "Do not create an active project automatically."
+      - "Do not displace current priorities."
+
+  ambiguous_claim:
+    definition: "Language whose possible interpretations imply materially different state changes."
+    examples:
+      - "The paper is basically done."
+    permitted_updates:
+      - "Preserve the exact claim in notes if useful."
+      - "Ask for clarification when project status, completion, or a consequential decision depends on it."
+    prohibited_transformations:
+      - "Do not infer submission, completion, mastery, or activation."
+
+update_process:
+  - step: identify_candidate_fact
+    guidance: "Separate what the user reports from interpretation and evaluation."
+  - step: classify_information
+    guidance: "Assign the information to the most appropriate update category."
+  - step: identify_minimal_target
+    guidance: "Choose the smallest state object and fields that accurately represent the change."
+  - step: preserve_evidence_quality
+    guidance: "Record self-report, artifact, result, assistance level, or ambiguity when relevant."
+  - step: apply_or_defer
+    guidance: "Update only supported fields; otherwise preserve uncertainty or request clarification."
+  - step: timestamp_when_useful
+    guidance: "Use last_updated or an event record for dynamic changes; static fields do not require a timestamp on every value."
+
+field_authority:
+  stable_profile:
+    source_file: state/profile.yaml
+    change_threshold: "Explicit user correction or durable new fact."
+  strategic_goals:
+    source_file: state/strategic-goals.yaml
+    change_threshold: "Explicit user decision; never inferred from one difficult day."
+  projects:
+    source_file: state/projects.yaml
+    change_threshold: "Confirmed project facts or explicit project decisions."
+  skills:
+    source_file: state/skills.yaml
+    change_threshold: "Evidence-backed competency changes; self-assessments remain tentative."
+  career:
+    source_file: state/career.yaml
+    change_threshold: "Explicit career decision, completed asset change, or documented application/interview event."
+  constraints:
+    source_file: state/constraints.yaml
+    change_threshold: "Explicit user change; temporary low capacity belongs in execution state."
+  execution:
+    source_file: state/execution.yaml
+    change_threshold: "Current plans, progress, interruptions, blockers, and commitments may update frequently."
+
+principles:
+  - "Update facts rather than evaluative labels."
+  - "Use null, unknown, or tentative status when evidence is incomplete."
+  - "Preserve target, aspirational, latest-acceptable, and hard dates as distinct meanings."
+  - "Do not silently rewrite user goals, role families, priorities, capacity, or health constraints."
+  - "Do not create completion percentages without a defined denominator."
+  - "Do not use one difficult day to alter stable profile or strategic state."
+  - "When a single message contains both a state update and another request, apply the update policy only to the update portion."
+
+conflict_handling:
+  user_correction: "Prefer the user's explicit correction and preserve the change date when useful."
+  conflicting_reports: "Do not silently choose; retain the conflict or ask for clarification if consequential."
+  stale_dynamic_state: "Prefer a newer clear fact over an older execution record."
+  stable_constraint_conflict: "Do not infer that a temporary behavior revokes a stable constraint."

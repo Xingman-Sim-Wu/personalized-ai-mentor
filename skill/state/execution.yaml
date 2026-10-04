@@ -1,0 +1,11 @@
+schema_version: "0.1"
+state_layer: execution
+example_data: true
+
+execution:
+  today:
+    top_priorities: []
+    completed: []
+    blockers: []
+  recent_commitments: []
+  recent_progress_reports: []
